@@ -1,0 +1,2 @@
+\documentclass[ignorenonframetext,aspectratio=169,10pt,xcolor=table]{beamer}
+\input{content}
