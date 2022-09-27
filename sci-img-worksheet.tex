@@ -1,0 +1,122 @@
+\documentclass[xcolor=table]{article}
+
+\usepackage{beamerarticle}
+
+\definecolor{EnglishViolet}{HTML}{4B3D60}
+\definecolor{Crimson}{HTML}{DB162F}
+
+\setbeamercolor{structure}{fg=EnglishViolet}
+\setbeamercolor{normal text}{fg=white!25!black}
+
+\usefonttheme{structurebold}
+\setbeamercolor{footnote}{fg=gray}
+\setbeamercolor{alerted text}{fg=Crimson}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{page number in head/foot}[appendixframenumber]
+\setbeamertemplate{itemize items}[circle]
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+\renewbibmacro{in:}{} % remove In
+\renewbibmacro{title}{} % remove
+\renewbibmacro{doi}{} % remove title
+
+\newrobustcmd*{\footfullcitenomark}{%
+  \AtNextCite{%
+  \let\thefootnote\relax\let\mkbibfootnote\mkbibfootnotetext}%
+\footfullcite}
+
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{calc,shapes,positioning}
+\pgfplotsset{compat=1.15}
+\pgfkeys{/pgfplots/tuftelike/.style={
+  semithick,
+  tick style={major tick length=4pt,semithick,black},
+  separate axis lines,
+  axis x line*=bottom,
+  axis x line shift=10pt,
+  xlabel shift=5pt,
+  axis y line*=left,
+  axis y line shift=10pt,
+  ylabel shift=5pt}}
+
+\usepackage{menukeys}
+
+\title{Scientific Imaging with ImageJ}
+\subtitle{Worksheet}
+\author{J\'er\^ome Boulanger}
+\date{June 23rd, 2022}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Excercice}
+
+\newtheorem{solutions}{Solution}
+
+\begin{document}
+\maketitle
+
+
+\begin{exercice} Opening an image
+\begin{enumerate}
+  \item Open the boat example image \menu{File>Open Samples>Boats}
+  \item Press the short cut \keys{\Alt+\shift+C}
+  \item Change the minimum and maximum sliders and observe the image
+  \item Press \keys{Set} and set the Minimum displayed value to 50
+    and the maxium displayed value to 200, and press the \keys{OK} button.
+  \item Finally press \keys{Apply} and obsere the change of the
+    histogram in the B\&C window.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice} Scale bar
+\begin{enumerate}
+  \item Open an image % TODO specify an image
+  \item Inspect the metadata \keys{\Alt+I} and the pixel size \keys{\ctrl+\shift+P}
+  \item Adjust the brighness and contrast for each channels
+  \item Add a scale bar to the image
+  \item Include the image in a presentation (powerpoint \dots)
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice} Look up table (LUTs)
+\begin{enumerate}
+  \item Open a grey scale image \menu{File>Open Samples>Boats}
+  \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
+          Ramps}
+  \item Convert the image to RGB \menu{Image>Type>RGB Color}
+  \item Observe the values at each pixel
+  \item Open the blobs example \menu{File>Open Samples>Blobs} and
+        comment on the LUT
+  \item Explore other commands \menu{Image>Color>Display LUTs},
+        \menu{Image>Color>Edit LUT}
+  \item Open the Fluorescent Cells sample and change the red channel
+        to magenta.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice} Thresholding \& Selection
+  \begin{enumerate}
+     \item Open a grey scale image \menu{File>Open Samples>Blobs}
+     \item Open the tresholding tool \keys{\ctrl+\shift+T}
+     \item Select a threshold, or a thresholding method
+     \item Convert the mask into a ROI using \menu{Edit>Selection>Create selection}
+     \item Add this selection to the ROI manager using \keys{t}
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice} Thresholding \& ROIs
+  \begin{enumerate}
+     \item Open a grey scale image
+     \item Set a threshold and make the image binary pressing \keys{Apply}
+     \item Add connected components to the ROI Manager and get the
+           number of blobs.
+  \end{enumerate}
+\end{exercice}
+
+
+\end{document}

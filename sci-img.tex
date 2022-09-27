@@ -379,18 +379,19 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame} \frametitle{Brightness \& Contrast adjustment}
-  \framesubtitle{Ty it yourself}
-  \begin{itemize}
-  \item Open the boat example image \menu{File>Open Samples>Boats}
-  \item Press the short cut \keys{\Alt+\shift+C}
-  \item Change the minimum and maximum sliders and observe the image
-  \item Press \keys{Set} and set the Minimum displayed value to 50
-    and the maxium displayed value to 200, and press the \keys{OK} button.
-  \item Finally press \keys{Apply} and obsere the change of the
-    histogram in the B\&C window.
-  \end{itemize}
-\end{frame}
+%% \begin{frame} \frametitle{Brightness \& Contrast adjustment}
+%%   \framesubtitle{Try it yourself}
+%%   \begin{itemize}
+%%   \item Open the boat example image \menu{File>Open Samples>Boats}
+%%   \item Press the short cut \keys{\Alt+\shift+C}
+%%   \item Change the minimum and maximum sliders and observe the image
+%%   \item Press \keys{Set} and set the Minimum displayed value to 50
+%%     and the maxium displayed value to 200, and press the \keys{OK} button.
+%%   \item Finally press \keys{Apply} and obsere the change of the
+%%     histogram in the B\&C window.
+%%   \end{itemize}
+%% \end{frame
+
 
 \begin{frame} \frametitle{Histogram}
   \begin{itemize}
@@ -430,40 +431,40 @@
   \end{columns}
 \end{frame}
 
-\begin{frame} \frametitle{Look up table (LUT)} \framesubtitle{Try it
-    yourself}
-  \begin{columns}
-    \begin{column}{0.7\textwidth}
-      \begin{itemize}
-      \item Open a grey scale image \menu{File>Open Samples>Boats}
-      \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
-          Ramps}
-      \item Convert the image to RGB \menu{Image>Type>RGB Color}
-      \item Observe the values at each pixel
-      \item Open the blobs example \menu{File>Open Samples>Blobs} and
-        comment on the LUT
-      \item Explore other commands \menu{Image>Color>Display LUTs},
-        \menu{Image>Color>Edit LUT}
-      \item Open the Fluorescent Cells sample and change the red channel
-        to magenta.
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.3\textwidth}
-      \begin{center}
-        \begin{tikzpicture}
-          \begin{axis}[width=5cm,height=5cm,xlabel=Intensity,ylabel=Color,%
-            domain=0:255,axis x line=center, axis y line=center] \shade[left
-            color=black,right color=white] (axis cs:0,0) rectangle (axis cs:
-            255,10); \shade[bottom color=blue,top color=red] (axis cs:0,0)
-            rectangle (axis cs: 10,255); \addplot[structure,thick]{x};
-            \draw[thick,->] (128,15) -- (128,120); \draw[thick,->] (120,128) --
-            (15,128);
-          \end{axis}
-        \end{tikzpicture}
-      \end{center}
-    \end{column}
-  \end{columns}
-\end{frame}
+%% \begin{frame} \frametitle{Look up table (LUT)} \framesubtitle{Try it
+%%     yourself}
+%%   \begin{columns}
+%%     \begin{column}{0.7\textwidth}
+%%       \begin{itemize}
+%%       \item Open a grey scale image \menu{File>Open Samples>Boats}
+%%       \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
+%%           Ramps}
+%%       \item Convert the image to RGB \menu{Image>Type>RGB Color}
+%%       \item Observe the values at each pixel
+%%       \item Open the blobs example \menu{File>Open Samples>Blobs} and
+%%         comment on the LUT
+%%       \item Explore other commands \menu{Image>Color>Display LUTs},
+%%         \menu{Image>Color>Edit LUT}
+%%       \item Open the Fluorescent Cells sample and change the red channel
+%%         to magenta.
+%%       \end{itemize}
+%%     \end{column}
+%%     \begin{column}{0.3\textwidth}
+%%       \begin{center}
+%%         \begin{tikzpicture}
+%%           \begin{axis}[width=5cm,height=5cm,xlabel=Intensity,ylabel=Color,%
+%%             domain=0:255,axis x line=center, axis y line=center] \shade[left
+%%             color=black,right color=white] (axis cs:0,0) rectangle (axis cs:
+%%             255,10); \shade[bottom color=blue,top color=red] (axis cs:0,0)
+%%             rectangle (axis cs: 10,255); \addplot[structure,thick]{x};
+%%             \draw[thick,->] (128,15) -- (128,120); \draw[thick,->] (120,128) --
+%%             (15,128);
+%%           \end{axis}
+%%         \end{tikzpicture}
+%%       \end{center}
+%%     \end{column}
+%%   \end{columns}
+%% \end{frame}
 
 \begin{frame} \frametitle{Multi-channel images}
   \begin{itemize}
