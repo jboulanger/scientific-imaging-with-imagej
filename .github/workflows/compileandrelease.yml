@@ -12,7 +12,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - name: Install TeXlive
-        run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science biber
+        run: sudo apt-get update && sudo apt-get install texlive-latex-extra biber
       - name: LaTeX compile slides
         run: pdflatex sci-img; biber sci-img; pdflatex sci-img;pdflatex sci-img
       - name: LaTeX compile worksheet

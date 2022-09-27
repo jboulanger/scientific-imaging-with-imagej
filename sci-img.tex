@@ -678,7 +678,14 @@
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{tikzpicture}
-        \begin{axis}[tuftelike,domain=0:100,samples=200,no markers,ymin=0,ymax=255,xmin=0,xmax=100,xlabel=Space,ylabel=Intensity,width=5cm,ytick={0,128,255},xticks={0,50,100}]
+        \begin{axis}[tuftelike,
+            domain=0:100,
+            samples=200,
+            no markers,
+            ymin=0,ymax=255,xmin=0,xmax=100,
+            xlabel=Space,ylabel=Intensity,
+            width=5cm,
+            ytick={0,128,255},xtick={0,50,100}]
           \addplot[blue] {10};
           \addplot[green] {255*exp(-0.002*(x-50)*(x-50))};
           \addplot[black] {100*(1+sin(10*x)};
