@@ -1,4 +1,4 @@
-\documentclass[xcolor=table]{article}
+\documentclass[xcolor=table]{scrartcl}
 
 \usepackage{beamerarticle}
 
@@ -25,8 +25,8 @@
 
 \newrobustcmd*{\footfullcitenomark}{%
   \AtNextCite{%
-  \let\thefootnote\relax\let\mkbibfootnote\mkbibfootnotetext}%
-\footfullcite}
+    \let\thefootnote\relax\let\mkbibfootnote\mkbibfootnotetext}%
+  \footfullcite}
 
 \usepackage{graphicx}
 \graphicspath{{figs/}}
@@ -35,34 +35,37 @@
 \usetikzlibrary{calc,shapes,positioning}
 \pgfplotsset{compat=1.15}
 \pgfkeys{/pgfplots/tuftelike/.style={
-  semithick,
-  tick style={major tick length=4pt,semithick,black},
-  separate axis lines,
-  axis x line*=bottom,
-  axis x line shift=10pt,
-  xlabel shift=5pt,
-  axis y line*=left,
-  axis y line shift=10pt,
-  ylabel shift=5pt}}
+    semithick,
+    tick style={major tick length=4pt,semithick,black},
+    separate axis lines,
+    axis x line*=bottom,
+    axis x line shift=10pt,
+    xlabel shift=5pt,
+    axis y line*=left,
+    axis y line shift=10pt,
+    ylabel shift=5pt}}
 
 \usepackage{menukeys}
-
-\title{Scientific Imaging with ImageJ}
-\subtitle{Worksheet}
-\author{J\'er\^ome Boulanger}
-\date{June 23rd, 2022}
 
 \theoremstyle{definition}
 \newtheorem{exercice}{Excercice}
 
-\newtheorem{solutions}{Solution}
+\title{Scientific Imaging with ImageJ}
+\subtitle{Worksheet}
 
 \begin{document}
 \maketitle
 
+\begin{exercice} Image is data
+  \begin{enumerate}
+  \item Open a sample image : \menu{File>Open Sample>Blobs}
+  \item Click on the \textcolor{red}{\texttt{>>}} icon and tick
+        \menu{Pixel Inspector}
+  \end{enumerate}
+\end{exercice}
 
-\begin{exercice} Opening an image
-\begin{enumerate}
+\begin{exercice} Brightness and contrast
+  \begin{enumerate}
   \item Open the boat example image \menu{File>Open Samples>Boats}
   \item Press the short cut \keys{\Alt+\shift+C}
   \item Change the minimum and maximum sliders and observe the image
@@ -70,53 +73,75 @@
     and the maxium displayed value to 200, and press the \keys{OK} button.
   \item Finally press \keys{Apply} and obsere the change of the
     histogram in the B\&C window.
-\end{enumerate}
+  \end{enumerate}
 \end{exercice}
 
 \begin{exercice} Scale bar
-\begin{enumerate}
+  \begin{enumerate}
   \item Open an image % TODO specify an image
   \item Inspect the metadata \keys{\Alt+I} and the pixel size \keys{\ctrl+\shift+P}
   \item Adjust the brighness and contrast for each channels
   \item Add a scale bar to the image
-  \item Include the image in a presentation (powerpoint \dots)
-\end{enumerate}
+  \item Include the image in a presentation (powerpoint, keynote \dots)
+  \end{enumerate}
+\end{exercice}
+
+
+\begin{exercice} Multi-channel images
+  \begin{enumerate}
+  \item Open a composite image \menu{File>Open Samples>Fluorescent
+        Cells}
+  \item Use the channel tool to display each colour individually
+  \end{enumerate}
 \end{exercice}
 
 \begin{exercice} Look up table (LUTs)
-\begin{enumerate}
+  \begin{enumerate}
   \item Open a grey scale image \menu{File>Open Samples>Boats}
   \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
-          Ramps}
+    Ramps}
   \item Convert the image to RGB \menu{Image>Type>RGB Color}
   \item Observe the values at each pixel
   \item Open the blobs example \menu{File>Open Samples>Blobs} and
-        comment on the LUT
+    comment on the LUT
   \item Explore other commands \menu{Image>Color>Display LUTs},
-        \menu{Image>Color>Edit LUT}
+    \menu{Image>Color>Edit LUT}
   \item Open the Fluorescent Cells sample and change the red channel
-        to magenta.
-\end{enumerate}
+    to magenta.
+  \end{enumerate}
 \end{exercice}
 
 \begin{exercice} Thresholding \& Selection
   \begin{enumerate}
-     \item Open a grey scale image \menu{File>Open Samples>Blobs}
-     \item Open the tresholding tool \keys{\ctrl+\shift+T}
-     \item Select a threshold, or a thresholding method
-     \item Convert the mask into a ROI using \menu{Edit>Selection>Create selection}
-     \item Add this selection to the ROI manager using \keys{t}
+  \item Open the Blobs example \menu{File>Open Samples>Blobs}
+  \item Open the tresholding tool \keys{\ctrl+\shift+T}
+  \item Select a threshold, or a thresholding method
+  \item Convert the mask into a ROI using \menu{Edit>Selection>Create selection}
+  \item Add this selection to the ROI manager using \keys{t}
   \end{enumerate}
 \end{exercice}
 
 \begin{exercice} Thresholding \& ROIs
   \begin{enumerate}
-     \item Open a grey scale image
-     \item Set a threshold and make the image binary pressing \keys{Apply}
-     \item Add connected components to the ROI Manager and get the
-           number of blobs.
+  \item Open a grey scale image
+  \item Set a threshold and make the image binary pressing
+  \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particle}
+  \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager.
   \end{enumerate}
 \end{exercice}
+
+\begin{exercice} Thresholding \& ROIs
+  \begin{enumerate}
+     \item Create an image with a light grey square on a darker grey
+      square.
+    \item Add noise to the image
+    \item Launch the histogram and press \menu{Live}
+    \item Apply some filtering to the image
+    \item Set a threshold and observe the result
+    \item  Experiment with different filters
+  \end{enumerate}
+\end{exercice}
+
 
 
 \end{document}
