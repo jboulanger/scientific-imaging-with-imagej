@@ -10,6 +10,8 @@
 *.fot
 *.cb
 *.cb2
+*.nav
+*.snm
 
 
 ## Intermediate documents:
@@ -31,3 +33,4 @@ sci-img-worksheet.pdf
 *-blx.bib
 *.run.xml
 
+auto/*
