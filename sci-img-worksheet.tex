@@ -135,7 +135,7 @@ Close all open windows.
   \item Duplicate the image.
   \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}. 
   \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog)
-  \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. If the output of this step does not include the mean intensity, navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
+  \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. Navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
   
   \end{enumerate}
 \end{exercice}
@@ -144,11 +144,19 @@ Close all open windows.
   \begin{enumerate}
      \item Create an image with a light grey square on a darker grey
       square.
-    \item Add noise to the image
-    \item Launch the histogram and press \menu{Live}
-    \item Apply some filtering to the image
-    \item Set a threshold and observe the result
-    \item  Experiment with different filters
+      \begin{enumerate}
+          \item Create an empty image using \menu{File>New>Image...}
+          \item \menu{Edit>Options>Colors...} Set the foreground to \menu{lightgray} and the background to \menu{darkgray}
+          \item Draw a rectangle on the image using the rectangle tool on the Fiji toolbar.
+          \item \menu{Edit>Clear Outside}
+          \item \menu{Edit>Fill}
+        \end{enumerate}
+      \item Launch the histogram and press \menu{Live}. How does the histogram look like?
+      \item Add 5 intensity units to every pixel in the image.  \menu{Process>Math>Add...} Observe what happens to the histogram.
+      \item Add noise to the image. Choose a noise tool under   \menu{Process>Noise}. How does the histogram look like?
+    \item Apply some filtering to the image (under \menu{Process>Filter} or \menu{Process>Smooth}) and observe the change in the histogram.
+    \item Set a threshold and observe the result.
+    \item  Experiment with different filters.
   \end{enumerate}
 \end{exercice}
 
