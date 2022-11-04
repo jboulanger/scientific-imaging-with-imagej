@@ -212,6 +212,8 @@
     \item FigShare ( \url{figshare.com})
   \end{itemize}
 
+  ~~
+
   More info:
   \begin{itemize} \tiny
     \item \url{https://www.ukri.org/about-us/mrc/our-policies-and-standards/research/data-management-and-sharing/}
@@ -533,7 +535,11 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{histogram}
+      \begin{center}
+        \includegraphics[width=\textwidth]{histogram}
+
+      {\tiny ImageJ histogram}
+      \end{center}
     \end{column}
   \end{columns}
 \end{frame}
@@ -548,13 +554,15 @@
         (\menu{Apply LUT} taking into account the B\&C settings)
       \item LUT can be inverted (black becomes white, \dots)
       \item Use LUT to help people with colour blindness.
-      \item Match the LUT with the wavelength
+      \item You quickly access LUT tools from the toolbar.
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
       \begin{center}
-        \begin{tikzpicture}[scale=1.1]
-          \begin{axis}[width=5cm,height=5cm,
+        \begin{tikzpicture}
+          \begin{axis}[
+              width=5cm,
+              height=4cm,
               xlabel=Intensity,
               ylabel=Color,
               domain=0:255,
@@ -566,6 +574,14 @@
             \draw[thick,->] (120,128) -- (15,128);
           \end{axis}
         \end{tikzpicture}
+
+        {\tiny Intensity to color mapping}
+
+        ~~
+
+        \includegraphics[width=\textwidth]{lut-tools.png}
+
+        {\tiny ImageJ LUT toolbar}
       \end{center}
     \end{column}
   \end{columns}
@@ -624,6 +640,7 @@
   \item Split channels of an image using \menu{Image>Color>Split
       Channels}
   \end{itemize}
+
 %%  \begin{block}{Try it yourself}
 %%     \begin{itemize}
 %%     \item Open a composite image \menu{File>Open Samples>Fluorescent
@@ -650,14 +667,8 @@
   \item Orthogonal views (\menu{Image>Stack>Orthogonal Views}) or
     \keys{\ctrl+\shift+H} can help visualize 3D data
   \item Maximum intensity projection \menu{Image>Stack>Z Project\dots}
-  \item Reslice a stack with \menu{Image>Stack>Reslice\dots} or press
-    \keys{/}
-    % \item Extended depth of field: select the plane most in focus for
-    each pixel. Activate the BIG-EPFL update site and search for
-    ``Extended Depth Of Field''
-    % \item 3D rendering
-  \end{itemize} To synchronize two stacks use
-  \menu{Analyze>Tools>Synchronize Windows}
+  \item Reslice a stack with \menu{Image>Stack>Reslice\dots} or press \keys{/}
+  \end{itemize} To synchronize two stacks use \menu{Analyze>Tools>Synchronize Windows}
 \end{frame}
 
 \begin{frame} \frametitle{Basic manipulation}
@@ -702,36 +713,55 @@
 \end{frame}
 
 \begin{frame} \frametitle{Threshold}
-  \begin{itemize}
-  \item Thresholding an image gives a binary image: 8-bit image with
-    values either 0 or 255 whether the pixel intensity lies within two
-    values (upper \& lower).
-  \item Simplest form of image segmentation.
-  \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
-    tool.
-    \begin{itemize}
-    \item Use the sliders to set the upper and lower values
-    \item Auto thresholds: Fiji includes a set of automatic threshold
-      \footnote{\url{https://imagej.net/plugins/auto-threshold}}
-    \item Stack histogram: the statistics will be computed on the all
-      stack
-    \end{itemize}
-  \item Use \menu{Apply} or \menu{Process>Binary>Convert to mask} to
-    apply the threshold and make the image binary.
-  \item The menu \menu{Process>Binary>Make binary} will show a dialog
-    if a threshold has been set.
-  \item The LUT of binary images is inverted
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{itemize}
+      \item Thresholding an image gives a binary image: 8-bit image with
+        values either 0 or 255
+      \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
+        tool.
+        \begin{itemize}
+        \item Use the sliders to set the upper and lower values
+        \item Auto thresholds: Fiji includes a set of automatic threshold
+          \url{https://imagej.net/plugins/auto-threshold}
+        \item Stack histogram: the statistics will be computed on the all
+          stack
+        \end{itemize}
+      \item Use \menu{Apply} or \menu{Process>Binary>Convert to mask} to
+        apply the threshold and make the image binary.
+      \item The menu \menu{Process>Binary>Make binary} will show a dialog
+        if a threshold has been set.
+      \item The LUT of binary images is inverted
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.3\textwidth} \centering
+      \includegraphics[width=\textwidth]{threshold}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame} \frametitle{From thresholds to regions of interests}
-  \begin{itemize}
-  \item Use \menu{Edit>Selection>Create selection} to convert the
-    threshold to a selection (can be a composite selection).
-  \item Use the \menu{Analyze>Analyze Particles\dots} to convert
-    connected components into individual ROIs and add them to the ROI
-    Manager.
-  \end{itemize}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+    \begin{itemize}
+    \item Use \menu{Edit>Selection>Create selection} to convert the
+      threshold to a selection (can be a composite selection).
+      \begin{center}
+      \includegraphics[width=0.7\textwidth]{threshold2selection}
+      \end{center}
+    \end{itemize}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{itemize}
+      \item Use the \menu{Analyze>Analyze Particles\dots} to convert
+      connected components into individual ROIs and add them to the ROI
+      Manager.
+      \begin{center}
+        \includegraphics[width=0.7\textwidth]{thresholdroimanager}
+      \end{center}
+    \end{itemize}
+  \end{column}
+  \end{columns}
 %%  \begin{block}{Try it yourself}
 %%     \begin{enumerate}
 %%     \item Open the blob sample image
@@ -788,6 +818,16 @@
   \item Gaussian filtering \menu{Process>Filters>Gaussian Blur\dots}
   \item Median filtering \menu{Process>Filters>Gaussian Blur\dots}
   \end{itemize}
+  \begin{center}
+    \begin{tabular}{ c c c c}
+      Original & Smooth & Gaussian 5px  & Median 2px\\
+      \includegraphics[width=0.2\textwidth]{flt-original}&
+      \includegraphics[width=0.2\textwidth]{flt-smooth}&
+      \includegraphics[width=0.2\textwidth]{flt-gaussian5}&
+      \includegraphics[width=0.2\textwidth]{flt-median2}
+    \end{tabular}
+    \end{center}
+
 
 %%   \begin{block}{Try it yourself}
 %%     \begin{itemize}
@@ -816,10 +856,6 @@
         \item Rolling ball from \menu{Process>Subtract Background\dots}
         \item Top Hat (image - grayscale opening) from
           \menu{Process>Filter>Top Hat\dots}
-        \end{itemize}
-      \item Illumination correction
-        \begin{itemize}
-        \item BASIC plugin
         \end{itemize}
       \end{itemize}
     \end{column}
