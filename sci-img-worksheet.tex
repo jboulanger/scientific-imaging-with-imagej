@@ -1,5 +1,7 @@
 \documentclass[xcolor=table,DIV=19,twocolumn]{scrartcl}
 
+\usepackage{lmodern}
+\renewcommand\familydefault{\sfdefault}
 \usepackage{beamerarticle}
 
 \definecolor{EnglishViolet}{HTML}{4B3D60}
@@ -56,17 +58,16 @@
 \begin{document}
 \maketitle
 
-\begin{exercice} Image is data
+\begin{exercice} \textbf{Image is data}
   \begin{enumerate}
   \item Open a sample image : \menu{File>Open Sample>Blobs}
   \item Click on the \textcolor{red}{\texttt{>>}} icon in the FIJI toolbar and tick
         \menu{Pixel Inspector}
+  \item Move your cursor over the image and observe the change of values in the FIJI toolbar. Now click on the image. What do you see?
   \end{enumerate}
-  Move your cursor over the image and observe the change of values in the FIJI toolbar. Now click on the image. What do you see?
-  Close all open windows.
 \end{exercice}
 
-\begin{exercice} Brightness and contrast
+\begin{exercice} \textbf{Brightness and contrast}
   \begin{enumerate}
   \item Open the boat example image \menu{File>Open Samples>Boats}
   \item Press the short cut \keys{\Alt+\shift+C} or go to \menu{Image>Adjust>Brightness/Contrast}
@@ -76,24 +77,21 @@
   \item Finally press \keys{Apply} and observe the change of the
     histogram in the B\&C window.
   \end{enumerate}
-  Close all open windows. 
 \end{exercice}
 
-\begin{exercice} Multi-channel images
+\begin{exercice} \textbf{Multi-channel images}
   \begin{enumerate}
   \item Open a composite image \menu{File>Open Samples>Fluorescent
         Cells}
   \item Use the channel tool (\menu{Image>Color>Channel Tool...}) to display each colour individually
   \item Use \menu{Image>Color>Split Channels} to split the stack into separate images
-  \item Use \menu{Image>Color>Merge Channels} to create a new image consisting of the red and green channel only. 
+  \item Use \menu{Image>Color>Merge Channels} to create a new image consisting of the red and green channel only.
   \end{enumerate}
-Close all open windows. 
-
 \end{exercice}
 
-\begin{exercice} Scale bar
+\begin{exercice} \textbf{Scale bar}
   \begin{enumerate}
-  \item Open the sample image \menu{File>Open Samples>HeLa cells (48-bit RGB)} 
+  \item Open the sample image \menu{File>Open Samples>HeLa cells (48-bit RGB)}
   \item Inspect the metadata \keys{\Alt+I} (or \menu{Image>Show Info...}) and the pixel size \keys{\ctrl+\shift+P} (or \menu{Image>Properties...})
   \item Adjust the brightness and contrast for each channels
   \item Add a scale bar to the image
@@ -102,7 +100,7 @@ Close all open windows.
 \end{exercice}
 
 
-\begin{exercice} Look up table (LUTs)
+\begin{exercice} \textbf{Look up table (LUTs)}
   \begin{enumerate}
   \item Open a grey scale image \menu{File>Open Samples>Boats}
   \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
@@ -119,7 +117,7 @@ Close all open windows.
   \end{enumerate}
 \end{exercice}
 
-\begin{exercice} Thresholding \& Selection
+\begin{exercice} \textbf{Thresholding \& Selection}
   \begin{enumerate}
   \item Open the Blobs example \menu{File>Open Samples>Blobs}
   \item Open the tresholding tool \keys{\ctrl+\shift+T} or \menu{Image>Adjust>Threshold...}
@@ -129,18 +127,18 @@ Close all open windows.
   \end{enumerate}
 \end{exercice}
 
-\begin{exercice} Thresholding \& ROIs
+\begin{exercice} \textbf{Thresholding \& ROIs}
   \begin{enumerate}
   \item Open a grey scale image
   \item Duplicate the image.
-  \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}. 
+  \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}.
   \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog)
   \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. Navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
-  
+
   \end{enumerate}
 \end{exercice}
 
-\begin{exercice} Thresholding \& ROIs
+\begin{exercice} \textbf{Thresholding \& ROIs}
   \begin{enumerate}
      \item Create an image with a light grey square on a darker grey
       square.
@@ -159,7 +157,5 @@ Close all open windows.
     \item  Experiment with different filters.
   \end{enumerate}
 \end{exercice}
-
-
 
 \end{document}

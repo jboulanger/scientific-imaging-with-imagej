@@ -34,3 +34,6 @@ sci-img-worksheet.pdf
 *.run.xml
 
 auto/*
+
+*synctex.gz
+*fdb_latexmk
