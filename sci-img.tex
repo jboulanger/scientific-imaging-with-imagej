@@ -62,6 +62,7 @@
   \item improve handling of scientific images for quantification and
     illustation,
   \item understand core concepts about images,
+  \item acquire good practices,
   \item discover ImageJ.
   \end{itemize} Online ressources are available here:
   \begin{itemize}
@@ -92,67 +93,137 @@
   \end{block}
 \end{frame}
 
-
-\part{Data managment}
-\frame{\partpage}
-
-\begin{frame} \frametitle{Data managment}
-
-  \begin{block}{FAIR}
-    Guidelines for ensuring that computational systems can find, access,
-    (inter-) operate and reuse archived data with none or minimal human
-    intervention.
-  \end{block}
-
-  \begin{block}{IDR}
-    Public repository of image datasets from published scientific studies, where
-    the community can submit, search and access high-quality bio-image data.
-    Supported by BBSRC, Wellcome Trust and EBI.
-  \end{block}
-
-  \begin{block}{Zenodo}
-    general-purpose open repository supported by CERN.
-  \end{block}
-
-  \footfullcitenomark{fair}   \footfullcitenomark{idr}
-
-\end{frame}
-
 \begin{frame} \frametitle{Image integrity}
-
-  When preparing a figure:
 
   \begin{itemize}
   \item Apply adjustments to the entire image
   \item Track the sequence of manipulations (scripts/macro)
   \end{itemize}
 
+
   Include in the legend or methods section the following
   information:
+  \begin{itemize}\small
 
-  \begin{itemize}
   \item Equipment (microscopes, lenses, cameras, detectors,
     filters, software).
-     \begin{itemize}\small
+
+     \begin{itemize}
      \item[bad] Pictures were taken on the Zeiss\_780\_2S370.
-     \item[good] Images acquired on a Zeiss LSM 780 inverted microscope
-       controlled by Zen black and equiped with a 63x/1.4 oil objective using a
-       488nm laser and GaAsp detectors.
+     \item[good] Images acquired on a Zeiss LSM 780 inverted
+    microscope controlled by Zen black and equiped with a 63x/1.4 oil
+    objective using a 488nm laser and GaAsp detectors.
      \end{itemize}
-  \item Time and space sampling (pixel size), image bit depth, temperature,
-    imaging medium, fluorochromes
+
+  \item Time and space sampling (pixel size), image bit depth,
+    temperature, imaging medium, fluorochromes
   \item Look up table, gamma correction
-  \item Processing software and manipulations: deconvolution, 3D
-    reconstructions, volume rendering, filtering, nonlinear operation,
-    thresholding and projection
+  \item Processing software and manipulations: deconvolution, 3D reconstructions, volume rendering, filtering, nonlinear operation, thresholding and projection
   \end{itemize}
 
   \footfullcitenomark{nature-figs} \footfullcitenomark{ori-guidelines}
+
+\end{frame}
+
+\begin{frame} \frametitle{Data managment}
+
+  \begin{block}{FAIR}
+    Guidelines for ensuring that computational systems can find, access, (inter-)
+    operate and reuse archived data with none or minimal human intervention.
+  \end{block}
+
+  \begin{block}{IDR idr.openmicroscopy.org}
+    Public repository of image datasets from published scientific studies, where
+    the community can submit, search and access high-quality bio-image data.
+    Supported by BBSRC, Wellcome Trust and EBI.
+  \end{block}
+
+  \begin{block}{Zenodo zenodo.org}
+    General-purpose open repository supported by CERN. Associate a citable doi
+    to digital assets.
+  \end{block}
+
+  \footfullcitenomark{fair} \footfullcitenomark{idr}
 \end{frame}
 
 
-\part{Basic}
-\frame{\partpage}
+\begin{frame}{The FAIR Guiding Principles}
+  \begin{block}{Findable}
+    \begin{itemize}
+    \item (meta)data are assigned a globally unique and persistent identifier
+    \item data are described with rich metadata (see below)
+    \item metadata clearly and explicitly include the identifier of the data it describes
+    \item (meta)data are registered or indexed in a searchable resource
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Accessible}
+    \begin{itemize}
+    \item (meta)data are retrievable by their identifier using a standardized communications protocol
+      \begin{itemize}
+      \item the protocol is open, free, and universally implementable
+      \item the protocol allows for an authentication and authorization procedure, where necessary
+      \end{itemize}
+    \item metadata are accessible, even when the data are no longer available
+    \end{itemize}
+  \end{block}
+
+  \begin{flushright}
+    {\tiny
+      Local info: \url{https://osc.cam.ac.uk/open-research/data-management-sharing}}
+  \end{flushright}
+\end{frame}
+
+\begin{frame}{The FAIR Guiding Principles}
+  \begin{block}{Interoperable}
+    \begin{itemize}
+    \item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+    \item (meta)data use vocabularies that follow FAIR principles
+    \item (meta)data include qualified references to other (meta)data
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Reusable}
+    \begin{itemize}
+    \item meta(data) are richly described with a plurality of accurate and relevant attributes
+      \begin{itemize}
+      \item (meta)data are released with a clear and accessible data usage license
+      \item (meta)data are associated with detailed provenance
+      \item (meta)data meet domain-relevant community standards
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+  \begin{flushright} \tiny
+    \url{https://doi.org/10.1038/sdata.2016.18}\\
+    \url{https://osc.cam.ac.uk/open-research/data-management-sharing}
+  \end{flushright}
+
+\end{frame}
+
+%% \begin{frame}{Software good practice}
+%% \begin{itemize}
+%% 	\item Use meaningful variable and function names
+%% 	\item Write comments, documentation. Provide usage examples.
+%% 	\item Use a publicly accessible repository with version control. \\
+%% 	 (GitHub, GitLab,Bitbucket...). Add a license.\\
+%% 	It helps:
+%% 	\begin{itemize}
+%% 	\item to track changes in your software
+%% 	\item collaborations
+%% 	\item reproducibility of results
+%% 	\item reusability
+%% 	\item to improves software quality.
+%% 	\end{itemize}
+%% 	\item Register code in a community registry, making it easy to find
+%% 	\item Enable citation of the software
+%% 	\item Use a software quality checklist
+%% \end{itemize}
+%% \begin{flushright}
+%% {\tiny \url{https://fair-software.eu}}
+%% \end{flushright}
+%% \end{frame}
+
 
 
 \begin{frame} \frametitle{The ImageJ software}
@@ -176,6 +247,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Installation \& Updating}
+
   \begin{block}{First Installation}
     \begin{itemize}
     \item Download Fiji from
@@ -186,6 +258,7 @@
       and create a shortcut.
     \end{itemize}
   \end{block}
+
   \begin{block}{Updating}
     \begin{itemize}
     \item To update ImageJ to the latest version \menu{Help > Update
@@ -194,26 +267,30 @@
       sites \menu{Help > Update}
     \end{itemize}
   \end{block}
+
 \end{frame}
 
-\begin{frame} \frametitle{Fiji.app folder content} The Fiji.app folder
-  is organized into several subfolders:
+\begin{frame}  \frametitle{Fiji.app folder content}
+
+  The Fiji.app folder is organized into several subfolders:
+
   \begin{itemize}
-  \item \directory{jars} : contains the main jar (eg ij-1.53q.jar) and
+  \item \directory{jars}: contains the main jar (eg ij-1.53q.jar) and
     extra java dependencies
-  \item \directory{macros} : contains macros you installed and the
+  \item \directory{macros}: contains macros you installed and the
     \texttt{StartupMacros.fiji.ijm}
   \item \directory{plugins}: contains the jar (java artifacts) of the
     plugins
   \item \directory{scripts}: contains a few matlab scripts
-  \item \directory{lut} : look up tables (mapping for intensity to
-    displayed colors)
+  \item \directory{lut}: look up tables (mapping for intensity to displayed
+    colors)
   \end{itemize}
 \end{frame}
 
 \begin{frame} \frametitle{Image is data}
+
   \begin{columns}
-    \begin{column}{.6\textwidth}
+    \begin{column}{.5\textwidth}
       \begin{itemize}
       \item Sensors converts the number of detected photo-electrons
         into an electric volatage
@@ -223,21 +300,21 @@
         $x$ and rows $y$ starting at the top left corner at $(0,0)$.
       \end{itemize}
       \end{column}
-    \begin{column}{.4\textwidth} \only<1>{
+    \begin{column}{.5\textwidth}
+      \only<1>{
         \begin{tikzpicture}
           \begin{axis}[name=plot1,width=5.5cm,height=4.45cm,axis on
-            top, enlargelimits=false, y dir = reverse, xlabel=x,ylabel=y] \addplot
+              top, enlargelimits=false, y dir = reverse, xlabel=x,ylabel=y] \addplot
             graphics[xmin=00,xmax=600,ymin=500,ymax=0] {array_img}; \draw[red,very
-            thick] (axis cs:178,231) rectangle (axis cs:202,255);
+              thick] (axis cs:178,231) rectangle (axis cs:202,255);
           \end{axis}
-        \end{tikzpicture} }
-      \only<2>{\includegraphics[width=\textwidth]{array_pixels}}
+        \end{tikzpicture}
+      }
+      \only<2>{\includegraphics[width=.9\textwidth]{array_pixels}}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame} \frametitle{Multi-dimensional datasets}
-\end{frame}
 
 \begin{frame} \frametitle{General image formats}
   \begin{columns}
@@ -268,34 +345,38 @@
 \end{frame}
 
 
-\begin{frame} \frametitle{Microscope vendor image formats} Each
-  microscopy company has developed a format that can store multiple
-  series with each a multi-channel multi-plane image stack.
+\begin{frame} \frametitle{Microscope vendor image formats}
+
   \begin{itemize}
   \item Zeiss
     \begin{itemize}
-    \item LSM : TIF based file format with additional metadata and LZW
+    \item LSM: TIF based file format with additional metadata and LZW
       compression
-    \item CZI : JPEG-XR and Zstd lossless compressed image
+    \item CZI: JPEG-XR and Zstd lossless compressed image
     \end{itemize}
   \item Nikon
     \begin{itemize}
-    \item ND2 : JPEG-2000 lossless compression
+    \item ND2: JPEG-2000 lossless compression
     \end{itemize}
   \item Leica
     \begin{itemize}
-    \item LIF : Customized TIF file format
+    \item LIF: Customized TIF file format
     \end{itemize}
   \item Olympus
     \begin{itemize}
     \item OIF: multi file formats with associated images in a folder
     \item OIB: store multiple OIF and dependent image in one file
     \end{itemize}
-  \end{itemize} Some standardized image format have also been
-  developed to increase inter-operability:
-  \begin{itemize}
-  \item OME-TIFF, OME-ZARR, ICS, HDF5
   \end{itemize}
+
+  %Some standardized image format have also been developed to increase
+  %inter-operability:
+
+  %\begin{itemize}
+  %\item OME-TIFF, OME-ZARR, ICS, HDF5
+  %\end{itemize}
+  %
+  ImageJ uses bioformats to load these files.
 
 \end{frame}
 
@@ -315,8 +396,6 @@
     \end{itemize}
   \item The Open Microscopy Environment (OME) defines a specification
     for storing data on biological imaging.
-  \item Findable Accessibility, Interoperability, and Reusability
-    (FAIR) principle.
   \end{itemize} \footfullcitenomark{ome-schema}
   \footfullcitenomark{fair}
   \footfullcitenomark{linkert_metadata_2010}
@@ -345,6 +424,8 @@
         to set the scale
       \item Use \menu{Analyze>Tools>Scale Bar} to display the scale on
         a calibrated image
+      \item Saving the image as TIF will encode the pixel calibration (PNG or
+        JPEG) will loose it.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -366,14 +447,13 @@
           then digitized. Well depth is in the order of ~40000 electrons.
         \item For photo-multiplier tubes (PMT) photo-electrons are
           amplified using a chain of dynodes enabling to count individual
-          photons.
+          photons. Number of photon is low (<255).
         \end{itemize}
       \end{itemize}
       \begin{itemize}
       \item Use \menu{Image>Type>8-bit} to check \& convert an image
         to 8-bit, using the current dynamic range.
-      \item 32-bit mode will allow to preserve the information if the
-        intensities get out of the initial range.
+      \item Converting to lower bit depth may loose information.
       \end{itemize}
     \end{column}
     \begin{column}{0.3\textwidth}
@@ -421,9 +501,10 @@
 %% \end{frame
 
 
-\begin{frame} \frametitle{Histogram}
+\begin{frame}
+  \frametitle{Histogram}
   \begin{columns}
-    \begin{column}{0.7\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{itemize}
       \item Shows the frequency of each intensity values
       \item Use \menu{Analyze>Histogram} or \keys{\ctrl+h} to display the
@@ -432,31 +513,36 @@
       \item Visualise classes of pixels
       \end{itemize}
     \end{column}
-    \begin{column}{0.7\textwidth}
-      \includegraphics[width=0.5\textwidth]{histogram}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{histogram}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame} \frametitle{Look up table (LUT)}
   \begin{columns}
-    \begin{column}{0.7\textwidth}
+    \begin{column}{0.6\textwidth}
       \begin{itemize}
       \item Intensities are mapped to a color defined by a red, green
         and blue triplet value for display.
       \item Converting an image to RGB applies the current LUT
-        (\menu{Apply LUT}, apply the B\&C settings)
+        (\menu{Apply LUT} taking into account the B\&C settings)
       \item LUT can be inverted (black becomes white, \dots)
-      \item Use LUT to help people with colour blindness
+      \item Use LUT to help people with colour blindness.
+      \item Match the LUT with the wavelength
       \end{itemize}
     \end{column}
-    \begin{column}{0.3\textwidth}
+    \begin{column}{0.4\textwidth}
       \begin{center}
-        \begin{tikzpicture}
-          \begin{axis}[width=5cm,height=5cm,xlabel=Intensity,ylabel=Color,domain=0:255,axis
-            x line=center, axis y line=center] \shade[left color=black,right
-            color=white] (axis cs:0,0) rectangle (axis cs: 255,10); \shade[bottom
-            color=blue,top color=red] (axis cs:0,0) rectangle (axis cs: 10,255);
+        \begin{tikzpicture}[scale=1.1]
+          \begin{axis}[width=5cm,height=5cm,
+              xlabel=Intensity,
+              ylabel=Color,
+              domain=0:255,
+              axis x line=center,
+              axis y line=center]
+            \shade[left color=black,right color=white] (axis cs:0,0) rectangle (axis cs: 255,10);
+            \shade[bottom color=blue,top color=red] (axis cs:0,0) rectangle (axis cs: 10,255);
             \addplot[structure,thick]{x}; \draw[thick,->] (128,15) -- (128,120);
             \draw[thick,->] (120,128) -- (15,128);
           \end{axis}
@@ -739,149 +825,6 @@
 \end{columns}
 \end{frame}
 
-\begin{frame} \frametitle{Line profile}
-  \begin{itemize}
-  \item Line profile enable to measure distances visually.
-  \item Draw a line and select \menu{Analyze>Plot Profile} or press
-    \keys{\ctrl+K}
-  \item Use \menu{Data>Add fit} to approximate the data with a model
-  \end{itemize}
-  \begin{center}
-    \includegraphics[width=0.75\textwidth]{line-profile}
-  \end{center}
-\end{frame}
-
-\begin{frame} \frametitle{Kymograph}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{enumerate}
-      \item Create a maximum intensity projection
-      \item Select lines using a freehand tool and add them to the ROI
-        Manager
-      \item Double click on the line tool to access the line width
-        dialog
-      \item Reslice the original stack
-      \end{enumerate} Velocities can be then extracted from the
-      kymographs using a macro for example.
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{kymo_mito}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-
-\part{Advanced}
-\frame{\partpage}
-\begin{frame} \frametitle{Drift correction}
-  \begin{itemize}
-  \item Install Stackreg from the BIG-EPFL update site
-  \item \menu{Plugin>Registration>Stackreg}
-  \item The plugin can register drift using several motion models such
-    as
-    \begin{itemize}
-    \item Translation
-    \item Rigid body
-    \item Rotation
-    \item Scaled rotation
-    \item Affine
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame} \frametitle{Pixel classifier}
-  \begin{itemize}
-  \item Weka is a machine learning library in Java
-  \item The weka plugin allows to annotate, train, export and apply
-    the classifier
-  \end{itemize}
-  \begin{center} \includegraphics[width=0.75\textwidth]{weka}
-  \end{center}
-\end{frame}
-
-\begin{frame} \frametitle{Nuclei segmentation with StarDist}
-  \begin{itemize}
-  \item StartDist is deep learning based approach based on star convex
-    polygons
-  \item It has been trained to identify cell nulcei.
-  \item Install with \menu{Help>Update} and locate the StarDist and
-    CSBDeep entries
-  \item Launch trackmate from \menu{Plugins>StarDist}
-  \end{itemize}
-  \begin{center} \includegraphics[width=0.75\textwidth]{stardist}
-  \end{center}
-\end{frame}
-
-\begin{frame} \frametitle{Tracking with TrackMate}
-  \begin{itemize}
-  \item Detect spots and link them overtime
-  \item Install trackmate using \menu{Help>Update} and locate the
-    TrackMate entry
-  \item Launch trackmate from \menu{Plugins>Tracking>Trackmate}
-  \item Trackmate can also use stardist or weka for detecting objects
-  \end{itemize}
-  \begin{center} \includegraphics[width=0.5\textwidth]{trackmate}
-  \end{center}
-\end{frame}
-
-\begin{frame} \frametitle{Basic quantification workflow}
-  \begin{enumerate}
-  \item Open the image
-  \item Filtering
-  \item Threshold
-  \item Refine binary image
-  \item Extract ROIs
-  \item Measure
-  \end{enumerate}
-\end{frame}
-
-\begin{frame} \frametitle{Basic figure preparation workflow}
-  \begin{enumerate}
-  \item Open the image
-  \item Maximum intensity projection
-  \item Adjust contrasts
-  \item Convert to RGB
-  \item Add a scale bar
-  \item Export as PNG
-  \end{enumerate}
-\end{frame}
-
-\begin{frame} \frametitle{Figure preparation tools}
-  \begin{block}{Manually}
-    \begin{itemize}
-    \item Convert to RGB, add a scale bar without text, import in
-      Illustrator
-    \end{itemize}
-  \end{block}
-  \begin{block}{figureJ}
-    \begin{itemize}
-    \item Update sites IBMP-CNRS, ImageScience
-    \end{itemize}
-  \end{block}
-
-  \begin{block}{EZFig}
-    \begin{itemize}
-    \item Update sites: EZF
-    \end{itemize}
-  \end{block}
-
-
-  \begin{block}{QuickFigure}
-    \begin{itemize}
-    \item Update sites: QuickFigure
-    \end{itemize}
-  \end{block} \footfullcitenomark{mazo_plosone21}
-\end{frame}
-
-\begin{frame} \frametitle{Extension}
-
-  ImageJ functionality can be extended and customised using:
-  \begin{itemize}
-  \item Macros (.txt, .ijm files)
-  \item Scripts (Javascript, Python, Groovy \dots)
-  \item Plugins (in Java)
-  \end{itemize}
-\end{frame}
 
 \begin{frame} \frametitle{ImageJ Cheatsheet}
   \begin{columns}
@@ -894,11 +837,11 @@
         Add to ROI Manager & \keys{t} \\
         Restore Selection & \keys{\ctrl+\shift+E} \\
         Select All & \keys{\ctrl+A} \\
+        Select None & \keys{\ctrl+\shift+A}\\
       \end{tabular}
     \end{column}
      \begin{column}{0.5\textwidth}
       \begin{tabular}{ll}
-        Select None & \keys{\ctrl+\shift+A}\\
         Histogram & \keys{\ctrl+H} \\
         Orthoslices & \keys{\ctrl+\shift+H}\\
         Reslice & \keys{/} \\
@@ -912,90 +855,6 @@
 
 \end{frame}
 
-\subsection{Good practice}
 
-\begin{frame}{Data Management. The FAIR Guiding Principles} 
-To be Findable:
-\begin{itemize}
-\item (meta)data are assigned a globally unique and persistent identifier
-\item data are described with rich metadata (see below)
-\item metadata clearly and explicitly include the identifier of the data it describes
-\item (meta)data are registered or indexed in a searchable resource
-\end{itemize}
-
-To be Accessible:
-\begin{itemize}
-\item (meta)data are retrievable by their identifier using a standardized communications protocol
-\begin{itemize}
-\item the protocol is open, free, and universally implementable
-\item the protocol allows for an authentication and authorization procedure, where necessary
-\end{itemize}
-\item metadata are accessible, even when the data are no longer available
-\end{itemize}
-
-\begin{flushright}
-{\tiny
-Local info: \url{https://osc.cam.ac.uk/open-research/data-management-sharing}}
-\end{flushright}
-\end{frame}
-
-\begin{frame}{Data Management. The FAIR Guiding Principles} 
-To be Interoperable:
-\begin{itemize}
-\item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
-\item (meta)data use vocabularies that follow FAIR principles
-\item (meta)data include qualified references to other (meta)data
-\end{itemize}
-
-To be Reusable:
-\begin{itemize}
-\item meta(data) are richly described with a plurality of accurate and relevant attributes
-\begin{itemize}
-\item (meta)data are released with a clear and accessible data usage license
-\item (meta)data are associated with detailed provenance
-\item (meta)data meet domain-relevant community standards
-\end{itemize}
-\end{itemize}
-
-\begin{flushright}
-{\tiny \url{https://doi.org/10.1038/sdata.2016.18}}
-\end{flushright}
-
-%\vspace{1cm}
-
-\begin{flushright}
-{\tiny
-Local info: \url{https://osc.cam.ac.uk/open-research/data-management-sharing}}
-\end{flushright}
-
-\end{frame}
-
-\begin{frame}{Software good practice} 
-
-\begin{itemize}
-	\item Use meaningful variable and function names
-	\item Write comments, documentation. Provide usage examples.
-	\item Use a publicly accessible repository with version control. \\
-	 (GitHub, GitLab,Bitbucket...). Add a license.\\
-	It helps: 
-	\begin{itemize}
-	\item to track changes in your software
-	\item collaborations 
-	\item reproducibility of results 
-	\item reusability
-	\item to improves software quality. 
-	\end{itemize}
-
-
-	\item Register code in a community registry, making it easy to find
-	\item Enable citation of the software 
-	\item Use a software quality checklist
-\end{itemize}
-
-\vspace{1cm}
-\begin{flushright}
-{\tiny \url{https://fair-software.eu}}
-\end{flushright}
-\end{frame}
 
 \end{document}
