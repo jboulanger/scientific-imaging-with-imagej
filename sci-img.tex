@@ -16,7 +16,7 @@
 \setbeamertemplate{page number in head/foot}[appendixframenumber]
 \setbeamertemplate{itemize items}[circle]
 
-\usepackage{biblatex}
+\usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 \renewbibmacro{in:}{} % remove In
 \renewbibmacro{title}{} % remove
@@ -120,34 +120,13 @@
   \item Time and space sampling (pixel size), image bit depth,
     temperature, imaging medium, fluorochromes
   \item Look up table, gamma correction
-  \item Processing software and manipulations: deconvolution, 3D reconstructions, volume rendering, filtering, nonlinear operation, thresholding and projection
+  \item Processing software and manipulations: deconvolution, 3D reconstructions,
+   volume rendering, filtering, nonlinear operation, thresholding and projection
   \end{itemize}
 
   \footfullcitenomark{nature-figs} \footfullcitenomark{ori-guidelines}
 
 \end{frame}
-
-% \begin{frame} \frametitle{Data managment}
-
-%   \begin{block}{FAIR}
-%     Guidelines for ensuring that computational systems can find, access, (inter-)
-%     operate and reuse archived data with none or minimal human intervention.
-%   \end{block}
-
-%   \begin{block}{IDR idr.openmicroscopy.org}
-%     Public repository of image datasets from published scientific studies, where
-%     the community can submit, search and access high-quality bio-image data.
-%     Supported by BBSRC, Wellcome Trust and EBI.
-%   \end{block}
-
-%   \begin{block}{Zenodo zenodo.org}
-%     General-purpose open repository supported by CERN. Associate a citable doi
-%     to digital assets.
-%   \end{block}
-
-%   \footfullcitenomark{fair} \footfullcitenomark{idr}
-% \end{frame}
-
 
 \begin{frame}{The FAIR Guiding Principles}
   \begin{block}{Findable}
@@ -203,26 +182,56 @@
 
 \end{frame}
 
-\begin{frame}{Data Repositories}
+\begin{frame} \frametitle{Data repository}
+
+  \begin{block}{IDR idr.openmicroscopy.org}
+    Public repository of image datasets from published scientific studies, where
+    the community can submit, search and access high-quality bio-image data.
+    Supported by BBSRC, Wellcome Trust and EBI.
+  \end{block}
+
+  \begin{block}{Zenodo zenodo.org}
+    General-purpose open repository supported by CERN. Associate a citable doi
+    to digital assets.
+  \end{block}
+
+  % \begin{block}{Datahub \url{datahub.io}}
+  % \end{block}
+
+  % \begin{block}{Datahub \url{https://registry.opendata.aws/}}
+  % \end{block}
+
   \begin{itemize}
-    \item IDR ( \url{idr.openmicroscopy.org})
-    \item Zenodo ( \url{zenodo.org})
-    \item Mendeley Data ( \url{data.mendeley.com})
-    \item DataHub ( \url{datahub.io})
-    \item FigShare ( \url{figshare.com})
+  \item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
+  \item \url{https://www.data.cam.ac.uk},
+  \item \url{https://plos.org/open-science/open-data}
   \end{itemize}
 
-  ~~
 
-  More info:
-  \begin{itemize} \tiny
-    \item \url{https://www.ukri.org/about-us/mrc/our-policies-and-standards/research/data-management-and-sharing/}
-    \item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
-    \item \url{https://www.data.cam.ac.uk},
-    \item \url{https://plos.org/open-science/open-data}
-  \end{itemize}
+  \footfullcitenomark{idr}
+\end{frame}
 
-  \end{frame}
+
+% \begin{frame}{Data Repositories}
+%   \begin{itemize}
+%     \item IDR ( \url{idr.openmicroscopy.org})
+%     \item Zenodo ( \url{zenodo.org})
+%     \item Mendeley Data ( \url{data.mendeley.com})
+%     \item DataHub ( \url{datahub.io})
+%     \item FigShare ( \url{figshare.com})
+%   \end{itemize}
+
+%   ~~
+
+%   More info:
+%   \begin{itemize} \tiny
+%     \item \url{https://www.ukri.org/about-us/mrc/our-policies-and-standards/research/data-management-and-sharing/}
+%     \item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
+%     \item \url{https://www.data.cam.ac.uk},
+%     \item \url{https://plos.org/open-science/open-data}
+%   \end{itemize}
+
+%   \end{frame}
 
 %% \begin{frame}{Software good practice}
 %% \begin{itemize}
@@ -423,7 +432,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Loading an image}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{1em}
   \item Fiji will detect supported file format when selecting
     \menu{File>Open} and use bioformat if needed to load an image from
     disk to memory.
@@ -438,15 +447,15 @@
 \begin{frame} \frametitle{Pixel size calibration \& scale bar}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \begin{itemize}
+      \begin{itemize} \setlength\itemsep{1em}
       \item Use \menu{Image>Properties\dots} to check and set the
         pixel size in each dimensions
       \item Use \menu{Analyze>Set Scale\dots} to use an known distance
         to set the scale
       \item Use \menu{Analyze>Tools>Scale Bar} to display the scale on
         a calibrated image
-      \item Saving the image as TIF will encode the pixel calibration (PNG or
-        JPEG) will loose it.
+      \item Saving the image as TIF will encode the pixel calibration, other
+      formats (PNG, JPEG) will loose it.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -458,7 +467,7 @@
 \begin{frame} \frametitle{Quantization}
   \begin{columns}
     \begin{column}{0.7\textwidth}
-      \begin{itemize}
+      \begin{itemize} \setlength\itemsep{1em}
       \item The intensity values are quantized into grey levels
       \item Images are saved as 8-bit or 16-bit images by acquisition
         software.
@@ -489,7 +498,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Brightness \& Contrast adjustment}
-  \begin{itemize}
+  \begin{itemize}\setlength\itemsep{1em}
   \item \menu{Image > Adjust > Brightness \& Contrast...} or
     \keys{\Alt+\shift+C} launches the B\&C tool
   \item Pixels intensities are mapped linearly to the displayed
@@ -526,12 +535,13 @@
   \frametitle{Histogram}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \begin{itemize}
+      \begin{itemize}\setlength\itemsep{1em}
       \item Shows the frequency of each intensity values
       \item Use \menu{Analyze>Histogram} or \keys{\ctrl+h} to display the
         histogram
       \item Helps identify clipped values (under/over exposed, saturated)
       \item Visualise classes of pixels
+      \item Good for detecting manipulated images
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -547,7 +557,7 @@
 \begin{frame} \frametitle{Look up table (LUT)}
   \begin{columns}
     \begin{column}{0.6\textwidth}
-      \begin{itemize}
+      \begin{itemize} \setlength\itemsep{1em}
       \item Intensities are mapped to a color defined by a red, green
         and blue triplet value for display.
       \item Converting an image to RGB applies the current LUT
@@ -623,7 +633,7 @@
 %% \end{frame}
 
 \begin{frame} \frametitle{Multi-channel images}
-  \begin{itemize}
+  \begin{itemize} \setlength\itemsep{1em}
   \item Multi-channel images can be easily acquired by microcopes
     (multiple wavelength/fluorophores, brightfield/DIC, \dots)
   \item There are two types of color images:
@@ -672,7 +682,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Basic manipulation}
-  \begin{itemize}
+  \begin{itemize} \setlength\itemsep{1em}
   \item Duplicate \keys{\ctrl+\shift+D} allows to crop, select
     channels and slices
   \item Use \keys{{+}} and \keys{-} or the magnifying glass tool to zoom
@@ -691,7 +701,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Selection / Region Of Interest (ROI)}
-  \begin{itemize}
+  \begin{itemize} \setlength\itemsep{1em}
   \item Use the rectangle, circle, polygon, freehand, line tools to
     create selections.
   \item Use \menu{Edit>Selection>Specify} to enter manually the
@@ -715,7 +725,7 @@
 \begin{frame} \frametitle{Threshold}
   \begin{columns}
     \begin{column}{0.7\textwidth}
-      \begin{itemize}
+      \begin{itemize} \setlength\itemsep{1em}
       \item Thresholding an image gives a binary image: 8-bit image with
         values either 0 or 255
       \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
@@ -776,7 +786,7 @@
 \begin{frame} \frametitle{Measurements}
   \begin{columns}
     \begin{column}{0.65\textwidth}
-      \begin{itemize}
+      \begin{itemize} \setlength\itemsep{2em}
       \item Use \menu{Analyze>Set Measurements} to define the
         quantity to be measured
       \item Select an individual ROI and press \keys{\ctrl+M} to add
@@ -791,10 +801,86 @@
   \end{columns}
 \end{frame}
 
-\begin{frame} \frametitle{Binary image processing} Binary image
-  processing relies mostly on ``morphological image processing'' which
-  process image by shapes. It can help refine the mask generated by
+\begin{frame} \frametitle{Background correction}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize} \setlength\itemsep{2em}
+      \item Uneven background makes images difficult to segment using a threshold.
+      \item Background level can vary for several reason:
+        \begin{itemize}
+        \item Uneven illumination
+        \item Scattering
+        \item Auto fluorescence
+        \end{itemize}
+      \item We can apply a few generic correction, to help thresholding the image
+        \begin{itemize}
+        \item Rolling ball from \menu{Process>Subtract Background\dots}
+        \item Top Hat (image - grayscale opening) from
+          \menu{Process>Filter>Top Hat\dots}
+        \end{itemize}
+      \item Note that the resulting intensity remains hard to compare at different
+        location within the image.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+      \begin{tikzpicture}
+        \begin{axis}[tuftelike,
+            domain=0:100,
+            samples=200,
+            no markers,
+            ymin=0,ymax=255,xmin=0,xmax=100,
+            xlabel={x-axis},ylabel=Intensity,
+            width=5cm,
+            ytick={0,128,255},xtick={0,50,100},
+            legend style={at={(1,1.25)},legend columns=2,fill=none,draw=none,font=\tiny}]
+            \addplot[very thick,black] {255*(0.5+0.25*sin(10*x)};
+            \addlegendentry{Sample}
+          \addplot[very thick,blue] {20};
+          \addlegendentry{Background}
+          \addplot[very thick,green!80!black] {254*(0.25+0.75*exp(-0.001*(x-50)*(x-50)))};
+          \addlegendentry{Illumination}
+          \addplot[very thick,red] {20 + 255*(0.5+0.25*sin(10*x)) * (0.25+0.75*exp(-0.001*(x-50)*(x-50)))};
+          \addlegendentry{Signal}
+        \end{axis}
+      \end{tikzpicture}
+
+      {\tiny Uneven illumination}
+    \end{center}
+    \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame} \frametitle{Filtering}
+
+  Image filtering can help reduce noise and is useful as a preprocessing to
+  obtain smooth outline.
+
+  \begin{itemize}
+  \item Box filtering \keys{\ctrl+\shift+S}
+  \item Gaussian filtering \menu{Process>Filters>Gaussian Blur\dots}
+  \item Median filtering \menu{Process>Filters>Gaussian Blur\dots}
+  \end{itemize}
+  \begin{center}
+    \begin{tabular}{ c c c c}
+      Original & Smooth & Gaussian 5px  & Median 2px\\
+      \includegraphics[width=0.2\textwidth]{flt-original}&
+      \includegraphics[width=0.2\textwidth]{flt-smooth}&
+      \includegraphics[width=0.2\textwidth]{flt-gaussian5}&
+      \includegraphics[width=0.2\textwidth]{flt-median2}
+    \end{tabular}
+    \end{center}
+
+\end{frame}
+
+\begin{frame} \frametitle{Binary image processing}
+
+  Binary image processing relies mostly on ``morphological image processing''
+  which process image by shapes. It can help refine the mask generated by
   thresholding:
+
   \begin{itemize}
   \item \menu{Process>Binary>Dilate} grow the masks, similar to
     \menu{Process>Filter>Maximum\dots}
@@ -811,77 +897,22 @@
   \end{center}
 \end{frame}
 
-\begin{frame} \frametitle{Filtering} Image filtering can help reduce
-  noise
-  \begin{itemize}
-  \item Box filtering \keys{\ctrl+\shift+S}
-  \item Gaussian filtering \menu{Process>Filters>Gaussian Blur\dots}
-  \item Median filtering \menu{Process>Filters>Gaussian Blur\dots}
-  \end{itemize}
-  \begin{center}
-    \begin{tabular}{ c c c c}
-      Original & Smooth & Gaussian 5px  & Median 2px\\
-      \includegraphics[width=0.2\textwidth]{flt-original}&
-      \includegraphics[width=0.2\textwidth]{flt-smooth}&
-      \includegraphics[width=0.2\textwidth]{flt-gaussian5}&
-      \includegraphics[width=0.2\textwidth]{flt-median2}
-    \end{tabular}
-    \end{center}
-
 
 %%   \begin{block}{Try it yourself}
 %%     \begin{itemize}
 %%     \item Create an image with a light grey square on a darker grey
-%%       square.
+%%  \begin{frame} \frametitle{Filtering}     square.
 %%     \item Add noise to the image
 %%     \item Launch the histogram and press \menu{Live}
 %%     \item Apply some filtering to the image
 %%     \item Apply a threshold
 %%     \end{itemize}
 %%   \end{block}
-\end{frame}
-
-\begin{frame} \frametitle{Background correction}
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      \begin{itemize}
-      \item Background level can vary for several reason
-        \begin{itemize}
-        \item Uneven illumination
-        \item Scattering
-        \item Auto fluorescence
-        \end{itemize}
-      \item Simple generic correction
-        \begin{itemize}
-        \item Rolling ball from \menu{Process>Subtract Background\dots}
-        \item Top Hat (image - grayscale opening) from
-          \menu{Process>Filter>Top Hat\dots}
-        \end{itemize}
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{tikzpicture}
-        \begin{axis}[tuftelike,
-            domain=0:100,
-            samples=200,
-            no markers,
-            ymin=0,ymax=255,xmin=0,xmax=100,
-            xlabel=Space,ylabel=Intensity,
-            width=5cm,
-            ytick={0,128,255},xtick={0,50,100}]
-          \addplot[blue] {10};
-          \addplot[green] {255*exp(-0.002*(x-50)*(x-50))};
-          \addplot[black] {100*(1+sin(10*x)};
-          \addplot[red] {10+exp(-0.002*(x-50)*(x-50))*(100*(1+sin(10*x))};
-
-        \end{axis}
-      \end{tikzpicture}
-    \end{column}
-\end{columns}
-\end{frame}
 
 
-\begin{frame} \frametitle{ImageJ Cheatsheet}
+
+\begin{frame}
+  \frametitle{ImageJ Cheatsheet}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{tabular}{ll}
@@ -907,108 +938,6 @@
       \end{tabular}
     \end{column}
   \end{columns}
-
-\end{frame}
-
-\subsection{Good practice}
-
-\begin{frame}{Data Management. The FAIR Guiding Principles}
-To be Findable:
-\begin{itemize}
-\item (meta)data are assigned a globally unique and persistent identifier
-\item data are described with rich metadata (see below)
-\item metadata clearly and explicitly include the identifier of the data it describes
-\item (meta)data are registered or indexed in a searchable resource
-\end{itemize}
-
-To be Accessible:
-\begin{itemize}
-\item (meta)data are retrievable by their identifier using a standardized communications protocol
-\begin{itemize}
-\item the protocol is open, free, and universally implementable
-\item the protocol allows for an authentication and authorization procedure, where necessary
-\end{itemize}
-\item metadata are accessible, even when the data are no longer available
-\end{itemize}
-
-\begin{flushright}
-{\tiny \url{https://doi.org/10.1038/sdata.2016.18}}
-\end{flushright}
-\end{frame}
-
-\begin{frame}{Data Management. The FAIR Guiding Principles}
-To be Interoperable:
-\begin{itemize}
-\item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
-\item (meta)data use vocabularies that follow FAIR principles
-\item (meta)data include qualified references to other (meta)data
-\end{itemize}
-
-To be Reusable:
-\begin{itemize}
-\item meta(data) are richly described with a plurality of accurate and relevant
-attributes
-\begin{itemize}
-\item (meta)data are released with a clear and accessible data usage license
-\item (meta)data are associated with detailed provenance
-\item (meta)data meet domain-relevant community standards
-\end{itemize}
-\end{itemize}
-
-\begin{flushright}
-{\tiny \url{https://doi.org/10.1038/sdata.2016.18}}
-\end{flushright}
-
-\end{frame}
-
-
-\begin{frame}{Data Repositories}
-\begin{itemize}
-\item FigShare ( \url{http://figshare.com}),
-\item Mendeley Data ( \url{https://data.mendeley.com/}),
-\item Zenodo ( \url{http://zenodo.org/}),
-\item DataHub ( \url{http://datahub.io}),
-\item IDR ( \url{https://idr.openmicroscopy.org/}) etc.
-\end{itemize}
-
-\vspace{1cm}
-More info:
-{\tiny
-\begin{itemize}
-\item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
-\item  \url{https://www.data.cam.ac.uk},
-\item \url{https://plos.org/open-science/open-data}
-\end{itemize}
-}
-\end{frame}
-
-\begin{frame}{Software good practice}
-
-\begin{itemize}
-	\item Use meaningful variable and function names
-	\item Write comments, documentation. Provide usage examples.
-	\item Use a publicly accessible repository with version control. \\
-	 (GitHub, GitLab,Bitbucket...). Add a license.\\
-	It helps:
-	\begin{itemize}
-	\item to track changes in your software
-	\item collaborations
-	\item reproducibility of results
-	\item reusability
-	\item to improves software quality.
-	\end{itemize}
-
-
-	\item Register code in a community registry, making it easy to find
-	\item Enable citation of the software
-	\item Use a software quality checklist
-\end{itemize}
-
-\vspace{1cm}
-\begin{flushright}
-{\tiny \url{https://fair-software.eu},\\
-\url{https://plos.org/open-science/open-code/}}
-\end{flushright}
 \end{frame}
 
 \end{document}
