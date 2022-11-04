@@ -218,7 +218,7 @@
       \item Sensors converts the number of detected photo-electrons
         into an electric volatage
       \item This voltage is then digitized into a number by the A/D
-        converted.
+        converter.
       \item The image can be seen as an array of values with columns
         $x$ and rows $y$ starting at the top left corner at $(0,0)$.
       \end{itemize}
@@ -257,7 +257,7 @@
         \end{itemize}
       \item ImageJ can read and write natively a few format such as
         TIFF, PNG, JPG
-      \item Use TIF for saving intermediate results (with LZW
+      \item Use TIF for saving intermediate results (with/without LZW
         compression) and PNG for figures
       \end{itemize}
     \end{column}
@@ -912,5 +912,90 @@
 
 \end{frame}
 
+\subsection{Good practice}
+
+\begin{frame}{Data Management. The FAIR Guiding Principles} 
+To be Findable:
+\begin{itemize}
+\item (meta)data are assigned a globally unique and persistent identifier
+\item data are described with rich metadata (see below)
+\item metadata clearly and explicitly include the identifier of the data it describes
+\item (meta)data are registered or indexed in a searchable resource
+\end{itemize}
+
+To be Accessible:
+\begin{itemize}
+\item (meta)data are retrievable by their identifier using a standardized communications protocol
+\begin{itemize}
+\item the protocol is open, free, and universally implementable
+\item the protocol allows for an authentication and authorization procedure, where necessary
+\end{itemize}
+\item metadata are accessible, even when the data are no longer available
+\end{itemize}
+
+\begin{flushright}
+{\tiny
+Local info: \url{https://osc.cam.ac.uk/open-research/data-management-sharing}}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{Data Management. The FAIR Guiding Principles} 
+To be Interoperable:
+\begin{itemize}
+\item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+\item (meta)data use vocabularies that follow FAIR principles
+\item (meta)data include qualified references to other (meta)data
+\end{itemize}
+
+To be Reusable:
+\begin{itemize}
+\item meta(data) are richly described with a plurality of accurate and relevant attributes
+\begin{itemize}
+\item (meta)data are released with a clear and accessible data usage license
+\item (meta)data are associated with detailed provenance
+\item (meta)data meet domain-relevant community standards
+\end{itemize}
+\end{itemize}
+
+\begin{flushright}
+{\tiny \url{https://doi.org/10.1038/sdata.2016.18}}
+\end{flushright}
+
+%\vspace{1cm}
+
+\begin{flushright}
+{\tiny
+Local info: \url{https://osc.cam.ac.uk/open-research/data-management-sharing}}
+\end{flushright}
+
+\end{frame}
+
+\begin{frame}{Software good practice} 
+
+\begin{itemize}
+	\item Use meaningful variable and function names
+	\item Write comments, documentation. Provide usage examples.
+	\item Use a publicly accessible repository with version control. \\
+	 (GitHub, GitLab,Bitbucket...). Add a license.\\
+	It helps: 
+	\begin{itemize}
+	\item to track changes in your software
+	\item collaborations 
+	\item reproducibility of results 
+	\item reusability
+	\item to improves software quality. 
+	\end{itemize}
+
+
+	\item Register code in a community registry, making it easy to find
+	\item Enable citation of the software 
+	\item Use a software quality checklist
+\end{itemize}
+
+\vspace{1cm}
+\begin{flushright}
+{\tiny \url{https://fair-software.eu}}
+\end{flushright}
+\end{frame}
 
 \end{document}
