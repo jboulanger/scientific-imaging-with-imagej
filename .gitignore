@@ -35,7 +35,7 @@ sci-img-worksheet.pdf
 
 auto/*
 
-*synctex.gz
+*.synctex.gz
 *fdb_latexmk
 
 backup.tex
