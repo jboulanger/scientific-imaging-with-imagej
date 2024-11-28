@@ -58,6 +58,16 @@
 \begin{document}
 \maketitle
 
+\begin{exercice} \textbf{Installation \& Update sites}
+  To perform the exerces we will first install Fiji and the necessary packages.
+  \begin{itemize}
+  \item \url{https://imagej.net/software/fiji/downloads}
+  \item Activate the following update sites: IJPB-plugins, CSBDeep, Stardist, BIG-EPFL, 
+  \item Restart Fiji 
+  \end{itemize}
+
+\end{exercice}
+
 \begin{exercice} \textbf{Image is data}
   \begin{enumerate}
   \item Open a sample image : \menu{File>Open Sample>Blobs}
@@ -119,26 +129,27 @@
 
 \begin{exercice} \textbf{Thresholding \& Selection}
   \begin{enumerate}
-  \item Open the Blobs example \menu{File>Open Samples>Blobs}
-  \item Open the tresholding tool \keys{\ctrl+\shift+T} or \menu{Image>Adjust>Threshold...}
-  \item Select a threshold, or a thresholding method
-  \item Convert the mask into a ROI using \menu{Edit>Selection>Create selection}
-  \item Open the ROI manager(\menu{Analyze>Tools>ROI Manager}) and add this selection to the ROI manager using \keys{t}
+  \item Open the Blobs example \menu{File>Open Samples>Blobs}.
+  \item Open the tresholding tool \keys{\ctrl+\shift+T} or \menu{Image>Adjust>Threshold...}.
+  \item Select a threshold, or a thresholding method.
+  \item Convert the threhsolded region into a ROI using \menu{Edit>Selection>Create selection}.
+  \item Open the ROI manager(\menu{Analyze>Tools>ROI Manager}) and add this selection to the ROI manager using \keys{t}.
   \end{enumerate}
+  Here the resulting selection can be composed of several non-connected (composite) regions.
 \end{exercice}
 
-\begin{exercice} \textbf{Thresholding \& ROIs}
+\begin{exercice} \textbf{Thresholding \& Particle analysis}
   \begin{enumerate}
-  \item Open a grey scale image
+  \item Open a grey scale image.
   \item Duplicate the image.
   \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}.
-  \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog)
+  \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog).
   \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. Navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
 
   \end{enumerate}
 \end{exercice}
 
-\begin{exercice} \textbf{Thresholding \& ROIs}
+\begin{exercice} \textbf{Filtering, noise and edges}
   \begin{enumerate}
      \item Create an image with a light grey square on a darker grey
       square.
@@ -148,14 +159,35 @@
           \item Draw a rectangle on the image using the rectangle tool on the Fiji toolbar.
           \item \menu{Edit>Clear Outside}
           \item \menu{Edit>Fill}
-        \end{enumerate}
-      \item Launch the histogram and press \menu{Live}. How does the histogram look like?
-      \item Add 50 intensity units to every pixel in the image.  \menu{Process>Math>Add...} Observe what happens to the histogram.
-      \item Add noise to the image. Choose a noise tool under   \menu{Process>Noise}. How does the histogram look like?
+      \end{enumerate}
+    \item Launch the histogram and press \menu{Live}. How does the histogram look like?
+    \item Add 50 intensity units to every pixel in the image.  \menu{Process>Math>Add...} Observe what happens to the histogram.
+    \item Add noise to the image. Choose a noise tool under   \menu{Process>Noise}. How does the histogram look like?
     \item Apply some filtering to the image (under \menu{Process>Filter} or \menu{Process>Smooth}) and observe the change in the histogram.
     \item Set a threshold and observe the result.
     \item  Experiment with different filters.
   \end{enumerate}
 \end{exercice}
+
+\begin{exercice} \textbf{Seeded watershed}
+  \begin{enumerate}
+    \item Open the "HeLa Cells (48-bit RGB)" example
+    \item Duplicate the third channel and create a mask of the nuclei
+    \item Compute the connected components (\menu{Plugins>MorpholibJ>Binary Images>Connected Components Labeling})
+    \item Filter out smaller regions (\menu{Plugins>MorpholibJ>Label Images>Label Size Filtering}) and rename the image as "marker".
+    \item Duplicate "marker" and threshold with values zeros and one and apply.
+    \item Compute the distance transform \menu{Process>Binary>Distance Map} and rename the image as "input".
+    \item Compute the watershed using \menu{Plugins>MorpholibJ>Segmentation>Marker-controlled Watershed} with "calculate dams" ticked.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice} \textbf{Stardist}
+  \begin{enumerate}
+    \item Open the "HeLa Cells (48-bit RGB)" example
+    \item Duplicate the third channel 
+    \item Run Stardist using \menu{Plugin>Stardist 2D}
+    \item Select the "Versatile" model, "ROI Manager" for the output type. 
+  \end{enumerate}
+\end{exercice} 
 
 \end{document}

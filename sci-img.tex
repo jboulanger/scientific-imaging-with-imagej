@@ -60,16 +60,18 @@
 \section{Introduction}
 
 \begin{frame} \frametitle<presentation>{Introduction}
-  The aim of this session is to learn
+  The aim of this session is to learn:
 
   ~~
 
   \begin{itemize}   \setlength\itemsep{1em}
-    \item how to improve handling of scientific images for quantification and
+    \item How to improve handling of scientific images for quantification and
       illustation,
-    \item understand core concepts about images,
-    \item acquire good practices,
-    \item discover ImageJ.
+    \item Understand core concepts about images,
+    \item Discover ImageJ/Fiji,
+    \item Know where to look for information,
+    \item Discover a few useful plugins,
+    \item Acquire good practices.
   \end{itemize}
 \end{frame}
 
@@ -126,12 +128,19 @@
 
   \begin{block}{First Installation}
     \begin{itemize}
-    \item Download Fiji from
-      \url{https://imagej.net/software/fiji/downloads}.
-    \item Unzip and save somewhere on your hard drive where default
-      users have access.
-    \item In Windows open the folder and double ckick on ImageJ-win64
+    \item Download Fiji from  \url{https://imagej.net/software/fiji/downloads}.
+    \item For windows:
+    \begin{itemize}
+      \item Unzip and save somewhere on your hard drive where default
+      users have access (not C:\\Program Files).
+      \item Open the folder and double click on ImageJ-win64
       and create a shortcut.
+    \end{itemize}
+    \item MacOS: 
+    \begin{itemize}
+      \item Move Fiji.app from the "Downloads" folder to the "Applications" folder
+     \item Open the security setting, find Fiji was blocked and click open anyway button.
+    \end{itemize}
     \end{itemize}
   \end{block}
 
@@ -168,15 +177,15 @@
 \begin{frame} \frametitle{Image is data}
 
   \begin{columns}
-
     \begin{column}{.5\textwidth}
+      For point scanner or camera based imaging systems:
       \begin{itemize} \setlength\itemsep{1em}
       \item Sensors converts the number of detected photo-electrons
-        into an electric volatage
+        into an electric voltage
       \item This voltage is then digitized into a number by the A/D
         converter.
       \item The image can be seen as an array of values with columns
-        $x$ and rows $y$ starting at the top left corner at $(0,0)$.
+        $x$ and rows $y$ starting in the top left corner with coordinates $(0,0)$.
       \end{itemize}
       \end{column}
 
@@ -197,6 +206,16 @@
 
 \end{frame}
 
+\begin{frame} \frametitle{A good image is good data}
+  Some experimental decisions can help the downstream image analysis, eg:
+  \begin{itemize}
+    \item Match the microscope setting to your experiment (objective, sampling, 3D, timelapse \dots)
+    \item Add house keeping labels (DAPI/Hoechst, WGA, etc) independent of you variables of interest
+    \item Be aware of possible cross talk (https://www.fpbase.org/) between channels
+    \item Do you want a readout per cell or per field of view?
+    \item Is the spatial context important (large field of view/tiling necessary)
+  \end{itemize}
+\end{frame}
 
 \begin{frame} \frametitle{General image formats}
 
@@ -246,16 +265,17 @@
       \end{itemize}
     \item Leica
       \begin{itemize}
-        \item LIF: Customized TIF file format
+        \item LIF: document with several images
       \end{itemize}
-    \item Olympus
+    \item Olympus/Evident
       \begin{itemize}
         \item OIF: multi file formats with associated images in a folder
         \item OIB: store multiple OIF and dependent image in one file
+        \item VSI: store data as a pyramid for fast visualization (.vsi/.ets)
       \end{itemize}
   \end{itemize}
 
-  ImageJ uses \href{https://imagej.net/formats/bio-formats}{bioformats} to load these files.
+  Fiji uses \href{https://imagej.net/formats/bio-formats}{bioformats} to load these files (installed by default).
 
 \end{frame}
 
@@ -268,8 +288,7 @@
     \item Acquisition software collect additional information that are
       stored in the files
     \begin{itemize}
-      \item Pixel size
-      \item Spacing between z planes
+      \item Pixel size in x, y, z
       \item Detectors
       \item Objective
       \item Emission wavelength
@@ -338,19 +357,19 @@
           then digitized. Well depth is in the order of ~40000 electrons.
         \item For photo-multiplier tubes (PMT) photo-electrons are
           amplified using a chain of dynodes enabling to count individual
-          photons. Number of photon is low (<255).
+          photons. Number of photon is low ($\leq 255$).
         \end{itemize}
       \end{itemize}
       \begin{itemize}
       \item Use \menu{Image>Type>8-bit} to check \& convert an image
         to 8-bit, using the current dynamic range.
-      \item Converting to lower bit depth may loose information.
+      \item Converting to lower bit depth may result in loss of information.
       \end{itemize}
     \end{column}
 
     \begin{column}{0.3\textwidth}
       \begin{center} \small \rowcolors{1}{gray!25!bg}{white!25!bg}
-        \begin{tabular}{cc}
+        \begin{tabular}{cl}
           Bit depth & Dynamic range \\ \hline 8 &
           0-255 \\ 12 & 0-4095\\ 14 & 0-16383\\ 16 & 0-65535
         \end{tabular}
@@ -644,7 +663,7 @@
     \begin{column}{0.7\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
       \item Thresholding an image gives a binary image: 8-bit image with
-        values either 0 or 255
+        values either "True" (0) or "False" (255).
       \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
         tool.
         \begin{itemize}
@@ -729,6 +748,98 @@
   \end{columns}
 \end{frame}
 
+\begin{frame} \frametitle{Advanced morphological operation}
+  \begin{columns}
+    \begin{column}{0.65\textwidth}
+  MorpholibJ provides additional morphological operations in 2D and 3D.
+  \begin{block}{Installation}
+    \begin{itemize}
+    \item Activate the IJPB-plugins update site
+    \end{itemize}
+  \end{block}
+  \begin{block}{Example usage}
+    \begin{itemize}
+      \item 3D morphological operations
+      \item Label connected components
+      \item Size filtering
+      \item Seeded watershed
+      \end{itemize}
+  \end{block}
+\end{column}
+\begin{column}{0.35\textwidth}
+  \includegraphics[width=\textwidth]{seeded_watershed}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame} \frametitle{Co-localization}
+  There are several types of colocalization
+  \begin{itemize}
+    \item correlation coefficients: Pearson correlation coefficient
+    \item overlap  coefficients: Manders coefficients
+    \item point base colocalization
+  \end{itemize}
+
+\end{frame}
+
+% \begin{frame} \frametitle{Affine stabilization}
+%   Image registration aims at aligning two images to each other.
+
+%   \begin{block}{Installation}
+%     \begin{itemize}
+%     \item Activate the BIG_EPFL and MultiStackReg update site
+%     \end{itemize}
+%   \end{block}
+
+%   \begin{block}{Usage}
+%     \begin{itemize}
+%     \item Select the motion model: translation, rigid, scaled rotation or affine
+%     \item Use MultiStackReg, to register more than one stack
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+
+
+% \begin{frame} \frametitle{Particle tracking with TrackMate}
+%   \begin{enumerate}
+%   \item Trackmate is 
+%   \item Linking the successive position of object over time
+%   \item Enable to extract speed, intensity variation, etc over time
+%   \end{enumerate}
+%   \begin{block}{Usage}
+%     \begin{itemize}
+%     \item Select a detector and adjust its parameters
+%     \item 
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+
+% \begin{frame} \frametitle{Pixel classification with Labkit}
+
+% \end{frame}
+
+\begin{frame} \frametitle{Stardist}
+
+  \begin{block}{Installation}
+    \begin{itemize}
+    \item Activate the CSBDeep and the Stardist update sites
+    \end{itemize}
+  \end{block}
+  \begin{block}{Usage}
+    \begin{itemize}
+    \item Startdist is neural network for star convex polygon segmentation.
+    \item Pre-trained weights can be loaded for nuclei segmentation.
+    \end{itemize}
+    \begin{center}
+      \includegraphics[width=0.75\textwidth]{stardist}
+    \end{center}
+  \end{block}
+
+  \centering
+  \footfullcitenomark{stardist}
+
+\end{frame}
 
 \begin{frame} \frametitle{Creating a workflow}
 
@@ -787,10 +898,12 @@
 
 
 \begin{frame}{The FAIR Guiding Principles}
+  \begin{columns} \small
+    \begin{column}{0.5\textwidth}
   \begin{block}{Findable}
     \begin{itemize}
     \item (meta)data are assigned a globally unique and persistent identifier
-    \item data are described with rich metadata (see below)
+    \item data are described with rich metadata 
     \item metadata clearly and explicitly include the identifier of the data it describes
     \item (meta)data are registered or indexed in a searchable resource
     \end{itemize}
@@ -798,44 +911,39 @@
 
   \begin{block}{Accessible}
     \begin{itemize}
-    \item (meta)data are retrievable by their identifier using a standardized communications protocol
+    \item (meta)data are retrievable by their identifier using a standardized protocol
       \begin{itemize}
-      \item the protocol is open, free, and universally implementable
-      \item the protocol allows for an authentication and authorization procedure, where necessary
+      \item  open, free, and universally implementable
+      \item  allows for an authentication and authorization procedure
       \end{itemize}
     \item metadata are accessible, even when the data are no longer available
     \end{itemize}
   \end{block}
-
-  \footfullcitenomark{fair}
-  \footfullcitenomark{cambridge-dmp}
-\end{frame}
-
-
-\begin{frame}{The FAIR Guiding Principles}
+\end{column}
+  \begin{column}{0.5\textwidth}
   \begin{block}{Interoperable}
     \begin{itemize}
     \item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
-    \item (meta)data use vocabularies that follow FAIR principles
     \item (meta)data include qualified references to other (meta)data
     \end{itemize}
   \end{block}
 
-  \begin{block}{Reusable}
-    \begin{itemize}
-    \item meta(data) are richly described with a plurality of accurate and relevant attributes
+    \begin{block}{Reusable}
       \begin{itemize}
-      \item (meta)data are released with a clear and accessible data usage license
-      \item (meta)data are associated with detailed provenance
-      \item (meta)data meet domain-relevant community standards
+      \item meta(data) are richly described with a plurality of accurate and relevant attributes
+        \begin{itemize}
+        \item (meta)data are released with a clear and accessible data usage license
+        \item (meta)data are associated with detailed provenance
+        \item (meta)data meet domain-relevant community standards
+        \end{itemize}
       \end{itemize}
-    \end{itemize}
-  \end{block}
+    \end{block}
+  \end{column}
+  \end{columns}
+    \footfullcitenomark{fair}
+    \footfullcitenomark{cambridge-dmp}
 
-  \footfullcitenomark{fair}
-  \footfullcitenomark{cambridge-dmp}
-
-\end{frame}
+  \end{frame}
 
 
 \begin{frame} \frametitle{Data repository}
@@ -949,7 +1057,6 @@
 
 \begin{frame}{Online ressources}
   \begin{itemize}
-    \item \url{http://imagej.nih.gov}
     \item \url{https://imagej.net}
     \item \url{https://forum.image.sc}
   \end{itemize}
