@@ -317,6 +317,7 @@
   \end{itemize}
 \end{frame}
 
+
 \begin{frame} \frametitle{Pixel size calibration \& scale bar}
 
   \begin{columns}
@@ -748,6 +749,15 @@
   \end{columns}
 \end{frame}
 
+\begin{frame} \frametitle{Saving results}
+  \begin{itemize} \setlength\itemsep{2em}
+  \item ImageJ TIFF can contain several images with metadata, sampling, overlays, LUT.
+  \item OME-TIFF add standardized metadata and compression (useful for masks).
+  \item Export ROI from the ROI manager to .roi or .zip files.
+  \item Export tables as .csv files to load in statistical softwares.
+  \end{itemize}
+\end{frame}
+
 \begin{frame} \frametitle{Advanced morphological operation}
   \begin{columns}
     \begin{column}{0.65\textwidth}
@@ -773,17 +783,27 @@
 \end{frame}
 
 
-\begin{frame} \frametitle{Co-localization}
-  There are several types of colocalization
-  \begin{itemize}
-    \item correlation coefficients: Pearson correlation coefficient
-    \item overlap  coefficients: Manders coefficients
-    \item point base colocalization
-  \end{itemize}
+\begin{frame} \frametitle{Co-localization: Pearson correlation coefficient}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      For two channels red $R$ and green $G$:
+      \begin{equation*}
+        PCC = \frac{\mathrm{cov}(R,G)}{\sigma_R \sigma_G}
+      \end{equation*}
 
+      \begin{equation*}
+        PCC = 
+        \frac{\sum_i (R_i - \bar{R}) (G_i - \bar{G})}
+            {\sqrt{\sum_i (R_i - \bar{R})^2 \sum_i (G_i - \bar{G})^2}}
+      \end{equation*}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+
+    \end{column}
+  \end{columns}
 \end{frame}
 
-% \begin{frame} \frametitle{Affine stabilization}
+% \begin{frame} \frametitle{Image registration}
 %   Image registration aims at aligning two images to each other.
 
 %   \begin{block}{Installation}
@@ -819,7 +839,7 @@
 
 % \end{frame}
 
-\begin{frame} \frametitle{Stardist}
+\begin{frame} \frametitle{Stardist: nuclei segmentation}
 
   \begin{block}{Installation}
     \begin{itemize}
@@ -841,7 +861,7 @@
 
 \end{frame}
 
-\begin{frame} \frametitle{Creating a workflow}
+\begin{frame} \frametitle{Creating a workflow: towards reproducibility}
 
   \begin{block}{Building a workflow}
     An analysis can have the following typical steps:
@@ -856,7 +876,10 @@
   \end{block}
 
   \begin{block}{Recording and scripting}
-    Recording and scripting allows to reproduce the workflow on other images.
+    \begin{itemize}
+    \item Recording and scripting allows to reproduce the workflow on other images.
+    \item \alert{Next course:} Introduction to ImageJ macro scripting
+  \end{itemize}
   \end{block}
 
 \end{frame}
@@ -898,11 +921,11 @@
 
 
 \begin{frame}{The FAIR Guiding Principles}
-  \begin{columns} \small
+  \begin{columns} \scriptsize
     \begin{column}{0.5\textwidth}
   \begin{block}{Findable}
     \begin{itemize}
-    \item (meta)data are assigned a globally unique and persistent identifier
+    \item (meta)data are assigned a globally unique identifier
     \item data are described with rich metadata 
     \item metadata clearly and explicitly include the identifier of the data it describes
     \item (meta)data are registered or indexed in a searchable resource
@@ -912,7 +935,7 @@
   \begin{block}{Accessible}
     \begin{itemize}
     \item (meta)data are retrievable by their identifier using a standardized protocol
-      \begin{itemize}
+      \begin{itemize} \scriptsize
       \item  open, free, and universally implementable
       \item  allows for an authentication and authorization procedure
       \end{itemize}
@@ -931,7 +954,7 @@
     \begin{block}{Reusable}
       \begin{itemize}
       \item meta(data) are richly described with a plurality of accurate and relevant attributes
-        \begin{itemize}
+        \begin{itemize}  \scriptsize
         \item (meta)data are released with a clear and accessible data usage license
         \item (meta)data are associated with detailed provenance
         \item (meta)data meet domain-relevant community standards
@@ -948,8 +971,7 @@
 
 \begin{frame} \frametitle{Data repository}
 
-  Publicly accessible dataset increase the number of citation of published
-  articles \footfullcite{colavizza_citation_2020}.
+  \footfullcitenomark{colavizza_citation_2020}.
 
   \begin{block}{Image Data Repository \url{https://idr.openmicroscopy.org}}
     Public repository of image datasets from published scientific studies, where
