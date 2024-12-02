@@ -157,7 +157,7 @@
 
 \begin{frame}  \frametitle{Fiji.app folder content}
 
-  The Fiji.app folder is organized into several subfolders:
+  The Fiji.app folder is organized into several subfolders, eg:\\[1em]
 
   \begin{itemize} \setlength\itemsep{1em}
   \item \directory{jars}: contains the main jar (eg ij-1.53q.jar) and
@@ -177,8 +177,8 @@
 \begin{frame} \frametitle{Image is data}
 
   \begin{columns}
-    \begin{column}{.5\textwidth}
-      For point scanner or camera based imaging systems:
+    \begin{column}{.6\textwidth}
+      For point scanner or camera based imaging systems:\\[1em]
       \begin{itemize} \setlength\itemsep{1em}
       \item Sensors converts the number of detected photo-electrons
         into an electric voltage
@@ -189,7 +189,7 @@
       \end{itemize}
       \end{column}
 
-    \begin{column}{.5\textwidth}
+    \begin{column}{.4\textwidth}
       \only<1>{
         \begin{tikzpicture}
           \begin{axis}[name=plot1,width=5.5cm,height=4.45cm,axis on
@@ -207,7 +207,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{A good image is good data}
-  Some experimental decisions can help the downstream image analysis, eg:
+  Some experimental decisions can help the downstream image analysis, eg:\\[1em]
   \begin{itemize}
     \item Match the microscope setting to your experiment (objective, sampling, 3D, timelapse \dots)
     \item Add house keeping labels (DAPI/Hoechst, WGA, etc) independent of you variables of interest
@@ -314,6 +314,7 @@
   \item The Bio-Formats plugin remember previous settings, so use
     the tool directly to define the way the drag and drop or
     \menu{File>Open} behaves on non-native formats.
+  \item To handle large data, use virtual stack \menu{File>Import>TIFF Virtual Stack} or tick the option ``use virtual stack'' in the Bio-Formats plugin.
   \end{itemize}
 \end{frame}
 
@@ -343,7 +344,7 @@
 
 \end{frame}
 
-\begin{frame} \frametitle{Quantization}
+\begin{frame} \frametitle{Quantization \& Bit depth}
 
   \begin{columns}
 
@@ -415,7 +416,7 @@
       \item Use \menu{Analyze>Histogram} or \keys{\ctrl+h} to display the
         histogram
       \item Helps identify clipped values (under/over exposed, saturated)
-      \item Visualise classes of pixels
+      \item Visualise classes of pixels (foreground/background)
       \item Good for detecting manipulated images
       \end{itemize}
     \end{column}
@@ -504,8 +505,8 @@
 \end{frame}
 
 
-\begin{frame} \frametitle{Multi-dimensional images}
-  \framesubtitle{Stack \& Hyperstacks}
+\begin{frame} \frametitle{Multi-dimensional images: Stack \& Hyperstacks}
+
   \begin{itemize} \setlength\itemsep{1em}
     \item Images can have many dimensions (axis) associated to them
       channel c, time t, depth.
@@ -516,15 +517,16 @@
     \item Virtual stacks enable to load only the images planes which are
       visualised.
   \end{itemize}
-
-  To quickly visualize multi-dimensional data, use :
-
+  \vspace{1em}
+  To quickly visualise multidimensional data, use :
+  \vspace{0.5em}
   \begin{itemize}
-    \item Orthogonal views (\menu{Image>Stack>Orthogonal Views}) or
-      \keys{\ctrl+\shift+H} can help visualize 3D data
+      \vspace{1em}\item Orthogonal views (\menu{Image>Stack>Orthogonal Views}) or
+      \keys{\ctrl+\shift+H} can help visualise 3D data
     \item Maximum intensity projection \menu{Image>Stack>Z Project\dots}
     \item Reslice a stack with \menu{Image>Stack>Reslice\dots} or press \keys{/}
     \item To synchronize two stacks use \menu{Analyze>Tools>Synchronize Windows}
+    \item Visualise 3D data using \menu{Plugins>3D viewer}, ClearVolume,  or 3D script
   \end{itemize}
 \end{frame}
 
@@ -749,6 +751,7 @@
   \end{columns}
 \end{frame}
 
+
 \begin{frame} \frametitle{Saving results}
   \begin{itemize} \setlength\itemsep{2em}
   \item ImageJ TIFF can contain several images with metadata, sampling, overlays, LUT.
@@ -757,6 +760,7 @@
   \item Export tables as .csv files to load in statistical softwares.
   \end{itemize}
 \end{frame}
+
 
 \begin{frame} \frametitle{Advanced morphological operation}
   \begin{columns}
@@ -782,48 +786,79 @@
 \end{columns}
 \end{frame}
 
-
-\begin{frame} \frametitle{Co-localization: Pearson correlation coefficient}
+\begin{frame} \frametitle{Colocalisation: Pearson correlation coefficient}
   \begin{columns}
-    \begin{column}{0.5\textwidth}
-      For two channels red $R$ and green $G$:
-      \begin{equation*}
-        PCC = \frac{\mathrm{cov}(R,G)}{\sigma_R \sigma_G}
-      \end{equation*}
-
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+      \item For two channels red $R$ and green $G$:
       \begin{equation*}
         PCC = 
         \frac{\sum_i (R_i - \bar{R}) (G_i - \bar{G})}
-            {\sqrt{\sum_i (R_i - \bar{R})^2 \sum_i (G_i - \bar{G})^2}}
+             {\sqrt{\sum_i (R_i - \bar{R})^2 \sum_i (G_i - \bar{G})^2}}
       \end{equation*}
+      \item Values ranges between -1 and 1:
+      \begin{center}
+      \includegraphics[width=0.7\textwidth]{pcc.png}
+      \end{center}
+      \item In Fiji, use coloc2 and the JACoP plugins can compute the PCC between channels.
+      \item Include Costes thresholding and randomisation
+      \end{itemize}
     \end{column}
-    \begin{column}{0.5\textwidth}
-
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.6\textwidth]{colocalization.jpg}
+      ~\\[1em]
+      \includegraphics[width=0.6\textwidth]{colocalization_pcc.png}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Colocalisation: Manders' overlap coefficient}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \begin{itemize}
+      \item For two channels red $R$ and green $G$:
+      \begin{equation*}
+        \begin{array}{ll}
+          M_1 &= \frac{\sum_{G_i>0} R_i}{\sum_i R_i}\\
+          M_2 &= \frac{\sum_{R_i>0} G_i}{\sum_i G_i}\\
+        \end{array}
+      \end{equation*}
+      \item Values ranges between 0 and 1
+      \item Available in coloc2 and JACoP
+      \item In both PCC and Manders' coefficient, \textbf{object segmentation} will improve the colocalisation analysis.
+      \item \alert{Co-localization does not prove interaction.}
+    \end{itemize}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{colocalization.jpg}
+    \end{column}
+  \end{columns}
+  \footfullcitenomark{moser17}
 \end{frame}
 
 % \begin{frame} \frametitle{Image registration}
 %   Image registration aims at aligning two images to each other.
 
-%   \begin{block}{Installation}
-%     \begin{itemize}
-%     \item Activate the BIG_EPFL and MultiStackReg update site
-%     \end{itemize}
-%   \end{block}
+%   % \begin{block}{Installation}
+%   %   \begin{itemize}
+%   %   \item Activate the BIG_EPFL and MultiStackReg update site
+%   %   \end{itemize}
+%   % \end{block}
 
-%   \begin{block}{Usage}
-%     \begin{itemize}
-%     \item Select the motion model: translation, rigid, scaled rotation or affine
-%     \item Use MultiStackReg, to register more than one stack
-%     \end{itemize}
-%   \end{block}
+%   % \begin{block}{Usage}
+%   %   \begin{itemize}
+%   %   \item Select the motion model: translation, rigid, scaled rotation or affine
+%   %   \item Use MultiStackReg, to register more than one stack
+%   %   \end{itemize}
+%   % \end{block}
 % \end{frame}
 
 
 % \begin{frame} \frametitle{Particle tracking with TrackMate}
 %   \begin{enumerate}
-%   \item Trackmate is 
+%   \item Trackmate is the 
 %   \item Linking the successive position of object over time
 %   \item Enable to extract speed, intensity variation, etc over time
 %   \end{enumerate}
@@ -835,9 +870,21 @@
 %   \end{block}
 % \end{frame}
 
-% \begin{frame} \frametitle{Pixel classification with Labkit}
-
-% \end{frame}
+\begin{frame} \frametitle{Pixel classification with Labkit}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Annotate an example image with different classes
+        \item Process the image with many filters at different scales
+        \item Feed each annotated pixel into a classifier
+        \item Apply the classifier to the rest of the image.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\textwidth]{labkit.png}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \begin{frame} \frametitle{Stardist: nuclei segmentation}
 
@@ -867,7 +914,7 @@
     An analysis can have the following typical steps:
     \begin{itemize}
       \item Duplicate
-      \item Pre-process (background substraction, filtering)
+      \item Pre-process (background subtraction, filtering)
       \item Threshold
       \item Process binary masks
       \item Populate the ROI manager
@@ -1077,10 +1124,23 @@
 \end{frame}
 
 
-\begin{frame}{Online ressources}
+\begin{frame}{Online resources}
+  Find help online:
   \begin{itemize}
     \item \url{https://imagej.net}
     \item \url{https://forum.image.sc}
+  \end{itemize}
+
+  Other software/tools:
+  \begin{itemize}
+    \item QuPath
+    \item Napari
+    \item Python scripts \& notebooks
+    \item NIS Elements (GA3)
+    \item Bitplane Imaris
+    \item Icy
+    \item CellProfiler
+    \item Huygens
   \end{itemize}
 \end{frame}
 

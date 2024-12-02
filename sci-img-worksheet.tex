@@ -1,4 +1,4 @@
-\documentclass[xcolor=table,DIV=19,twocolumn]{scrartcl}
+\documentclass[xcolor=table,DIV=19,twocolumn,10pt]{scrartcl}
 
 \usepackage{lmodern}
 \renewcommand\familydefault{\sfdefault}
@@ -54,7 +54,7 @@
 
 \title{Scientific Imaging with ImageJ}
 \subtitle{Worksheet}
-\date{}
+\date{\today}
 \begin{document}
 \maketitle
 
@@ -62,7 +62,7 @@
   To perform the exerces we will first install Fiji and the necessary packages.
   \begin{itemize}
   \item \url{https://imagej.net/software/fiji/downloads}
-  \item Activate the following update sites: IJPB-plugins, CSBDeep, Stardist, BIG-EPFL, 
+  \item Activate the following update sites: IJPB-plugins, CSBDeep, Stardist
   \item Restart Fiji 
   \end{itemize}
 
@@ -145,7 +145,6 @@
   \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}.
   \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog).
   \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. Navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
-
   \end{enumerate}
 \end{exercice}
 
@@ -166,6 +165,18 @@
     \item Apply some filtering to the image (under \menu{Process>Filter} or \menu{Process>Smooth}) and observe the change in the histogram.
     \item Set a threshold and observe the result.
     \item  Experiment with different filters.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice} \textbf{Computing manually the Pearson correlation coefficient}
+  \begin{enumerate}
+    \item Open the image coloc.tif
+    \item Split the channels, change the bit depth to 32 bit
+    \item Measure the mean intensity and subtract it to both image
+    \item Compute the product of the two images
+    \item Measure the mean of the product and the standard deviation of each channel
+    \item Compute the ratio of the mean of the product by product of the standard deviations.
+    \item Compare with the result given by coloc2.
   \end{enumerate}
 \end{exercice}
 
