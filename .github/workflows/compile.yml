@@ -1,0 +1,18 @@
+name: Compile Latex and Release PDF
+
+on: [push]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      - name: LaTeX compile slides
+        uses: xu-cheng/latex-action@v3
+        with:
+            root_file: |
+                sci-img.pdf
+                sci-img-worksheet.pdf
+            texlive_version: 2022
+            
