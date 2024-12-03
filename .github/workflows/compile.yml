@@ -12,7 +12,6 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
             root_file: |
-                sci-img.pdf
-                sci-img-worksheet.pdf
-            texlive_version: 2022
+                sci-img.tex
+                sci-img-worksheet.tex
             
