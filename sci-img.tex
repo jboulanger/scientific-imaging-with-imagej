@@ -3,7 +3,10 @@
 \definecolor{EnglishViolet}{HTML}{4B3D60}
 \definecolor{Crimson}{HTML}{DB162F}
 
-\beamertemplateshadingbackground{white}{white!80!black}
+% \beamertemplateshadingbackground{white}{white!80!black}
+\beamertemplateshadingbackground{white}{teal!8!gray!10}
+% \beamertemplateshadingbackground{orange!2!white}{brown!10!white}
+% \beamertemplateshadingbackground{white}{blue!10!gray!15}
 \setbeamercolor{structure}{fg=EnglishViolet}
 \setbeamercolor{normal text}{fg=white!25!black}
 \usefonttheme{structurebold}
@@ -47,9 +50,14 @@
 
 \usepackage{menukeys}
 
+\definecolor{exbg}{RGB}{240,244,248} % Light blue background
+\definecolor{exfg}{RGB}{31,58,82}   % Dark blue text
+% \setbeamercolor{exercisecolor}{fg=exfg, bg=exbg}
+\setbeamercolor{exercisecolor}{bg=teal!10!olive!10!white, fg=black!90}
+
 \title{Scientific Imaging with ImageJ}
 %\author{Material contributed by J\'er\^ome Boulanger, Ulrike Schlulze, Leila Mure\,san}
-%\date{}
+\date{29/06/2026}
 
 \begin{document}
 
@@ -66,7 +74,7 @@
 
   \begin{itemize}   \setlength\itemsep{1em}
     \item How to improve handling of scientific images for quantification and
-      illustation,
+          illustation,
     \item Understand core concepts about images,
     \item Discover ImageJ/Fiji,
     \item Know where to look for information,
@@ -77,23 +85,22 @@
 
 
 \begin{frame} \frametitle{Context}
-  \begin{block}{Quantification}
-    \begin{itemize}
-    \item Measure objects properties (intensity, area, shape, \dots)
-    \item Count objects
-    \item Relationship (co-occurrence, co-localisation), hierarchical.
-    \item Speed, motion, \dots
-    \end{itemize}
-  \end{block}
   \begin{block}{Illustration}
-
     \begin{itemize}
-    \item Use ImageJ to prepare the elements of a figure and import
-      them in Illustrator.
-    \item Relationship between markers
-    \item Localisation of organelles
-    \item Scale of objects
+      \item Use ImageJ to prepare the elements of a figure and import
+            them in Illustrator.
+      \item Relationship between markers
+      \item Localisation of organelles
+      \item Scale of objects
     \end{itemize}
+    \begin{block}{Quantification}
+      \begin{itemize}
+        \item Measure objects properties (intensity, area, shape, \dots)
+        \item Count objects
+        \item Relationship (co-occurrence, co-localisation), hierarchical.
+        \item Speed, motion, \dots
+      \end{itemize}
+    \end{block}
   \end{block}
 \end{frame}
 
@@ -105,17 +112,17 @@
   \end{center}
 
   \begin{itemize}  \setlength\itemsep{1em}
-  \item ImageJ is a Java based image processing software.
-  \item Java programs run on the java virtual machine (JVM)
-  \item Can run on many operating system (Microsoft Windows, Mac OS,
-    Linux, \dots)
-  \item Developed by Wayne Rasband since 1997 at the National
-    Institute of Health
-  \item ImageJ eco-system
-    \begin{itemize}
-    \item ImageJ2: rewrite of ImageJ for multi dimensional data
-    \item Fiji: image processing package built around ImageJ2
-    \end{itemize}
+    \item ImageJ is a Java based image processing software.
+    \item Java programs run on the java virtual machine (JVM)
+    \item Can run on many operating system (Microsoft Windows, Mac OS,
+          Linux, \dots)
+    \item Developed by Wayne Rasband since 1997 at the National
+          Institute of Health
+    \item ImageJ eco-system
+          \begin{itemize}
+            \item ImageJ2: rewrite of ImageJ for multi dimensional data
+            \item Fiji: image processing package built around ImageJ2
+          \end{itemize}
   \end{itemize}
 
   \footfullcitenomark{ij2}
@@ -128,31 +135,41 @@
 
   \begin{block}{First Installation}
     \begin{itemize}
-    \item Download Fiji from  \url{https://imagej.net/software/fiji/downloads}.
-    \item For windows:
-    \begin{itemize}
-      \item Unzip and save somewhere on your hard drive where default
-      users have access (not C:\\Program Files).
-      \item Open the folder and double click on ImageJ-win64
-      and create a shortcut.
-    \end{itemize}
-    \item MacOS: 
-    \begin{itemize}
-      \item Move Fiji.app from the "Downloads" folder to the "Applications" folder
-     \item Open the security setting, find Fiji was blocked and click open anyway button.
-    \end{itemize}
+      \item Download Fiji from  \url{https://imagej.net/software/fiji/downloads}.
+      \item For windows:
+            \begin{itemize}
+              \item Unzip and save somewhere on your hard drive where default
+                    users have access (not C:\\Program Files).
+              \item Open the folder and double click on ImageJ-win64
+                    and create a shortcut.
+            \end{itemize}
+      \item MacOS:
+            \begin{itemize}
+              \item Move Fiji.app from the "Downloads" folder to the "Applications" folder
+              \item Open the security setting, find Fiji was blocked and click open anyway button.
+            \end{itemize}
     \end{itemize}
   \end{block}
 
   \begin{block}{Updating}
     \begin{itemize}
-    \item To update ImageJ to the latest version \menu{Help > Update
-        ImageJ}.
-    \item To install/update plugins collections and manage update
-      sites \menu{Help > Update}
+      \item To update ImageJ to the latest version \menu{Help > Update
+              ImageJ}.
+      \item To install/update plugins collections and manage update
+            sites \menu{Help > Update}
     \end{itemize}
   \end{block}
+\end{frame}
 
+\begin{frame}{Exercise: Installation \& Update sites}
+  \noindent\begin{beamercolorbox}[rounded=true, shadow=true,sep=-1em]{exercisecolor}%
+    To perform the exercises we will first install Fiji and the necessary packages.
+    \begin{itemize}
+      \item \url{https://imagej.net/software/fiji/downloads}
+      \item Activate the following update sites: IJPB-plugins, CSBDeep, Stardist
+      \item Restart Fiji
+    \end{itemize}
+  \end{beamercolorbox}
 \end{frame}
 
 \begin{frame}  \frametitle{Fiji.app folder content}
@@ -160,15 +177,15 @@
   The Fiji.app folder is organized into several subfolders, eg:\\[1em]
 
   \begin{itemize} \setlength\itemsep{1em}
-  \item \directory{jars}: contains the main jar (eg ij-1.53q.jar) and
-    extra java dependencies
-  \item \directory{macros}: contains macros you installed and the
-    \texttt{StartupMacros.fiji.ijm}
-  \item \directory{plugins}: contains the jar (java artifacts) of the
-    plugins
-  \item \directory{scripts}: contains a few matlab scripts
-  \item \directory{lut}: look up tables (mapping for intensity to displayed
-    colors)
+    \item \directory{jars}: contains the main jar (eg ij-1.53q.jar) and
+          extra java dependencies
+    \item \directory{macros}: contains macros you installed and the
+          \texttt{StartupMacros.fiji.ijm}
+    \item \directory{plugins}: contains the jar (java artifacts) of the
+          plugins
+    \item \directory{scripts}: contains a few matlab scripts
+    \item \directory{lut}: look up tables (mapping for intensity to displayed
+          colors)
   \end{itemize}
 
 \end{frame}
@@ -180,14 +197,14 @@
     \begin{column}{.6\textwidth}
       For point scanner or camera based imaging systems:\\[1em]
       \begin{itemize} \setlength\itemsep{1em}
-      \item Sensors converts the number of detected photo-electrons
-        into an electric voltage
-      \item This voltage is then digitized into a number by the A/D
-        converter.
-      \item The image can be seen as an array of values with columns
-        $x$ and rows $y$ starting in the top left corner with coordinates $(0,0)$.
+        \item Sensors converts the number of detected photo-electrons
+              into an electric voltage
+        \item This voltage is then digitized into a number by the A/D
+              converter.
+        \item The image can be seen as an array of values with columns
+              $x$ and rows $y$ starting in the top left corner with coordinates $(0,0)$.
       \end{itemize}
-      \end{column}
+    \end{column}
 
     \begin{column}{.4\textwidth}
       \only<1>{
@@ -201,8 +218,19 @@
       }
       \only<2>{\includegraphics[width=.9\textwidth]{array_pixels}}
     \end{column}
-
   \end{columns}
+\end{frame}
+
+\begin{frame}{Exercise: Installation \& Update sites}
+
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open a sample image : \menu{File>Open Sample>Blobs}
+      \item Click on the \textcolor{red}{\texttt{>>}} icon in the FIJI toolbar and tick
+            \menu{Pixel Inspector}
+      \item Move your cursor over the image and observe the change of values in the FIJI toolbar. Now click on the image. What do you see?
+    \end{enumerate}
+  \end{beamercolorbox}
 
 \end{frame}
 
@@ -223,22 +251,22 @@
 
     \begin{column}{0.75\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item Digital images can be saved from the volatile memory (RAM)
-        of a computer to its persistent memory (HDD/SSD) as files with various
-        formats.
-      \item Most file formats include some sort of compression:
-        \begin{itemize}
-        \item Lossless compression (PNG): original values can be
-          exactly retreived
-        \item Lossy compression (JPEG): information is lost when
-          storing the image
-        \item Both (TIF): some formats are containers which can
-          include various type of compression
-        \end{itemize}
-      \item ImageJ can read and write natively a few format such as
-        TIFF, PNG, JPG
-      \item Use TIF for saving intermediate results (with/without LZW
-        compression) and PNG for figures
+        \item Digital images can be saved from the volatile memory (RAM)
+              of a computer to its persistent memory (HDD/SSD) as files with various
+              formats.
+        \item Most file formats include some sort of compression:
+              \begin{itemize}
+                \item Lossless compression (PNG): original values can be
+                      exactly retrieved.
+                \item Lossy compression (JPEG): information is lost when
+                      storing the image.
+                \item Both (TIF): some formats are containers which can
+                      include various type of compression.
+              \end{itemize}
+        \item ImageJ can read and write natively a few format such as
+              TIFF, PNG, JPG
+        \item Use TIF for saving intermediate results (with/without LZW
+              compression) and PNG for figures
       \end{itemize}
     \end{column}
 
@@ -254,25 +282,25 @@
 
   \begin{itemize}
     \item Zeiss
-      \begin{itemize} \setlength\itemsep{1em}
-      \item LSM: TIF based file format with additional metadata and LZW
-        compression
-      \item CZI: JPEG-XR and Zstd lossless compressed image
-      \end{itemize}
+          \begin{itemize} \setlength\itemsep{1em}
+            \item LSM: TIF based file format with additional metadata and LZW
+                  compression
+            \item CZI: JPEG-XR and Zstd lossless compressed image
+          \end{itemize}
     \item Nikon
-      \begin{itemize}
-        \item ND2: JPEG-2000 lossless compression
-      \end{itemize}
+          \begin{itemize}
+            \item ND2: JPEG-2000 lossless compression
+          \end{itemize}
     \item Leica
-      \begin{itemize}
-        \item LIF: document with several images
-      \end{itemize}
+          \begin{itemize}
+            \item LIF: document with several images
+          \end{itemize}
     \item Olympus/Evident
-      \begin{itemize}
-        \item OIF: multi file formats with associated images in a folder
-        \item OIB: store multiple OIF and dependent image in one file
-        \item VSI: store data as a pyramid for fast visualization (.vsi/.ets)
-      \end{itemize}
+          \begin{itemize}
+            \item OIF: multi file formats with associated images in a folder
+            \item OIB: store multiple OIF and dependent image in one file
+            \item VSI: store data as a pyramid for fast visualization (.vsi/.ets)
+          \end{itemize}
   \end{itemize}
 
   Fiji uses \href{https://imagej.net/formats/bio-formats}{bioformats} to load these files (installed by default).
@@ -282,20 +310,20 @@
 
 \begin{frame} \frametitle{Metadata}
 
-  \begin {itemize} \setlength\itemsep{1em}
+  \begin{itemize} \setlength\itemsep{1em}
     \item Metadata are essential to the interpretation and processing of
-      the image
+          the image
     \item Acquisition software collect additional information that are
-      stored in the files
-    \begin{itemize}
-      \item Pixel size in x, y, z
-      \item Detectors
-      \item Objective
-      \item Emission wavelength
-      \item \dots
-     \end{itemize}
+          stored in the files
+          \begin{itemize}
+            \item Pixel size in x, y, z
+            \item Detectors
+            \item Objective
+            \item Emission wavelength
+            \item \dots
+          \end{itemize}
     \item The Open Microscopy Environment (OME) defines a specification
-    for storing data on biological imaging.
+          for storing data on biological imaging.
   \end{itemize}
 
   \footfullcitenomark{ome-schema}
@@ -306,15 +334,15 @@
 
 \begin{frame} \frametitle{Loading an image}
   \begin{itemize} \setlength\itemsep{2em}
-  \item Fiji will detect supported file format when selecting
-    \menu{File>Open} and use bioformat if needed to load an image from
-    disk to memory.
-  \item You can also use \menu{Plugins > Bio-Formats > Bio-Formats
-      Importer} to use Bio-formats directly
-  \item The Bio-Formats plugin remember previous settings, so use
-    the tool directly to define the way the drag and drop or
-    \menu{File>Open} behaves on non-native formats.
-  \item To handle large data, use virtual stack \menu{File>Import>TIFF Virtual Stack} or tick the option ``use virtual stack'' in the Bio-Formats plugin.
+    \item Fiji will detect supported file format when selecting
+          \menu{File>Open} and use bioformat if needed to load an image from
+          disk to memory.
+    \item You can also use \menu{Plugins > Bio-Formats > Bio-Formats
+            Importer} to use Bio-formats directly
+    \item The Bio-Formats plugin remember previous settings, so use
+          the tool directly to define the way the drag and drop or
+          \menu{File>Open} behaves on non-native formats.
+    \item To handle large data, use virtual stack \menu{File>Import>TIFF Virtual Stack} or tick the option ``use virtual stack'' in the Bio-Formats plugin.
   \end{itemize}
 \end{frame}
 
@@ -325,14 +353,14 @@
 
     \begin{column}{0.5\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item Use \menu{Image>Properties\dots} to check and set the
-        pixel size in each dimensions
-      \item Use \menu{Analyze>Set Scale\dots} to use an known distance
-        to set the scale
-      \item Use \menu{Analyze>Tools>Scale Bar} to display the scale on
-        a calibrated image
-      \item Saving the image as TIF will encode the pixel calibration, other
-      formats (PNG, JPEG) will loose it.
+        \item Use \menu{Image>Properties\dots} to check and set the
+              pixel size in each dimensions
+        \item Use \menu{Analyze>Set Scale\dots} to use an known distance
+              to set the scale
+        \item Use \menu{Analyze>Tools>Scale Bar} to display the scale on
+              a calibrated image
+        \item Saving the image as TIF will encode the pixel calibration, other
+              formats (PNG, JPEG) will loose it.
       \end{itemize}
     \end{column}
 
@@ -344,28 +372,43 @@
 
 \end{frame}
 
-\begin{frame} \frametitle{Quantization \& Bit depth}
+\begin{frame}{Exercise: Scale bar}
+
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the sample image \menu{File>Open Samples>HeLa cells (48-bit RGB)}
+      \item Inspect the metadata \keys{Command+I} (or \menu{Image>Show Info...}) and the pixel size \keys{\ctrl+\shift+P} (or \menu{Image>Properties...})
+      \item Adjust the brightness and contrast for each channels
+      \item Add a scale bar to the image
+      \item Save the image and include the image in a presentation (powerpoint, keynote \dots)
+    \end{enumerate}
+  \end{beamercolorbox}
+
+\end{frame}
+
+
+\begin{frame} \frametitle{Quantization \& bit depth}
 
   \begin{columns}
 
     \begin{column}{0.7\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item The intensity values are quantized into grey levels
-      \item Images are saved as 8-bit or 16-bit images by acquisition
-        software.
-        \begin{itemize}
-        \item For camera sensor (CCD, CMOS), photo-electron are
-          accumulated in wells and converted into analogue voltages that are
-          then digitized. Well depth is in the order of ~40000 electrons.
-        \item For photo-multiplier tubes (PMT) photo-electrons are
-          amplified using a chain of dynodes enabling to count individual
-          photons. Number of photon is low ($\leq 255$).
-        \end{itemize}
+        \item The intensity values are quantized into grey levels.
+        \item Images are saved as 8-bit or 16-bit images by acquisition
+              software.
+              \begin{itemize}
+                \item For camera sensor (CCD, CMOS), photo-electron are
+                      accumulated in wells and converted into analogue voltages that are
+                      then digitized. Well depth is in the order of ~40000 electrons.
+                \item For photo-multiplier tubes (PMT) photo-electrons are
+                      amplified using a chain of dynodes enabling to count individual
+                      photons. Number of photon is low ($\leq 255$).
+              \end{itemize}
       \end{itemize}
       \begin{itemize}
-      \item Use \menu{Image>Type>8-bit} to check \& convert an image
-        to 8-bit, using the current dynamic range.
-      \item Converting to lower bit depth may result in loss of information.
+        \item Use \menu{Image>Type>8-bit} to check \& convert an image
+              to 8-bit, using the current dynamic range.
+        \item Converting to lower bit depth may result in loss of information.
       \end{itemize}
     \end{column}
 
@@ -373,7 +416,7 @@
       \begin{center} \small \rowcolors{1}{gray!25!bg}{white!25!bg}
         \begin{tabular}{cl}
           Bit depth & Dynamic range \\ \hline 8 &
-          0-255 \\ 12 & 0-4095\\ 14 & 0-16383\\ 16 & 0-65535
+          0-255                     \\ 12 & 0-4095\\ 14 & 0-16383\\ 16 & 0-65535
         \end{tabular}
       \end{center}
 
@@ -383,26 +426,40 @@
 
 \end{frame}
 
-\begin{frame} \frametitle{Brightness \& Contrast adjustment}
+\begin{frame} \frametitle{Brightness \& contrast adjustment}
 
   \begin{itemize}\setlength\itemsep{1em}
     \item \menu{Image > Adjust > Brightness \& Contrast...} or
-      \keys{\Alt+\shift+C} launches the B\&C tool
+          \keys{\Alt+\shift+C} launches the B\&C tool
     \item Pixels intensities are mapped linearly to the displayed
-      intensity.
+          intensity.
     \item Enable to discard unused part of the dynamic range
     \item Adjust the Minimum and Maximum of the dynamic range which will
-      be displayed.
+          be displayed.
     \item Adjust the Brightness and Contrast to change how they are
-      display.
+          display.
     \item Press \menu{Auto} to stretch the intensities between a
-      predefined percentage of saturated pixels. Equivalent to \menu{Process
-        > Enhance Contrast...} with the normalized option left unticked.
+          predefined percentage of saturated pixels. Equivalent to \menu{Process
+            > Enhance Contrast...} with the normalized option left unticked.
     \item Press \menu{Apply} to change the pixel values.
     \item When changing the image mode (16-bit to 8-bit or 32-bit to
-      8-bit) the B\&C settings are applied to the image.
+          8-bit) the B\&C settings are applied to the image.
   \end{itemize}
 
+\end{frame}
+
+\begin{frame}{Exercise: Brightness \& Contrast}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the boat example image \menu{File>Open Samples>Boats}
+      \item Press the short cut \keys{\Alt+\shift+C} or go to \menu{Image>Adjust>Brightness/Contrast}
+      \item Change the minimum and maximum sliders and observe the image
+      \item Press \keys{Set} and set the Minimum displayed value to 50
+            and the maximum displayed value to 200, and press the \keys{OK} button.
+      \item Finally press \keys{Apply} and observe the change of the
+            histogram in the B\&C window.
+    \end{enumerate}
+  \end{beamercolorbox}
 \end{frame}
 
 
@@ -412,12 +469,12 @@
 
     \begin{column}{0.5\textwidth}
       \begin{itemize}\setlength\itemsep{1em}
-      \item Shows the frequency of each intensity values
-      \item Use \menu{Analyze>Histogram} or \keys{\ctrl+h} to display the
-        histogram
-      \item Helps identify clipped values (under/over exposed, saturated)
-      \item Visualise classes of pixels (foreground/background)
-      \item Good for detecting manipulated images
+        \item Frequency of each intensity values.
+        \item Use \menu{Analyze>Histogram} or \keys{\ctrl+h} to display the
+              histogram.
+        \item Helps identify clipped values (under/over exposed, saturated).
+        \item Visualise classes of pixels (foreground/background).
+        \item Good for detecting manipulated images.
       \end{itemize}
     \end{column}
 
@@ -439,13 +496,13 @@
 
     \begin{column}{0.6\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item Intensities are mapped to a color defined by a red, green
-        and blue triplet value for display.
-      \item Converting an image to RGB applies the current LUT
-        (\menu{Apply LUT} taking into account the B\&C settings)
-      \item LUT can be inverted (black becomes white, \dots)
-      \item Use LUT to help people with colour blindness.
-      \item You quickly access LUT tools from the toolbar.
+        \item Intensities are mapped to a color defined by a red, green
+              and blue triplet value for display.
+        \item Converting an image to RGB applies the current LUT
+              (\menu{Apply LUT} taking into account the B\&C settings).
+        \item LUT can be inverted (black becomes white, \dots)
+        \item Use LUT to help people with colour blindness.
+        \item You quickly access LUT tools from the toolbar.
       \end{itemize}
     \end{column}
 
@@ -481,52 +538,84 @@
 
 \end{frame}
 
+\begin{frame}{Exercise: Look up table (LUTs)}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open a grey scale image \menu{File>Open Samples>Boats}
+      \item Apply a LUT to the image \menu{Image>Look Up Tables> 5
+              Ramps}
+      \item Duplicate the image \menu{Image>Duplicate...}
+      \item Convert the new image to RGB \menu{Image>Type>RGB Color}
+      \item Observe the values for each pixel and compare the Byte size of the two images. What is the difference?
+      \item Open the blobs example \menu{File>Open Samples>Blobs} and
+            comment on the LUT
+      \item Explore other commands \menu{Image>Color>Display LUTs},
+            \menu{Image>Color>Edit LUT}. (Note: \menu{Edit LUT} will only work if the active image  is not a RGB image. Make sure you click on the correct image before calling \menu{Image>Color>Edit LUT})
+      \item Open the Fluorescent Cells sample and change the red channel
+            to magenta.
+    \end{enumerate}
+  \end{beamercolorbox}
+\end{frame}
 
-\begin{frame} \frametitle{Multi-channel images}
+
+\begin{frame}{Multichannel images}
 
   \begin{itemize} \setlength\itemsep{1em}
-    \item Multi-channel images can be easily acquired by microcopes
-      (multiple wavelength/fluorophores, brightfield/DIC, \dots)
-    \item There are two types of color images:
-      \begin{itemize}
-      \item RGB images store color information into a single ($8 \times
-        3$) 24 bit image
-      \item Composite image are image whose channels are stored as
-        individual (8,16-32-bit) image planes
-      \end{itemize}
+    \item \textbf{Channel:} one detector measuring one specific signal at a time.
+    \item Multichannel images can be easily acquired by microcopes
+          (multiple wavelength/fluorophores, brightfield/DIC, \dots)
+    \item There are two types of colour images:
+          \begin{itemize}
+            \item RGB images store colour information into a single ($8 \times
+                    3$) 24 bit image.
+            \item Composite image are image whose channels are stored as
+                  individual (8,16-32-bit) image planes.
+          \end{itemize}
     \item On a composite image use \menu{Image>Color>Channel Tool} or
-      \keys{\ctrl+\shift+z} to select the channel to display
-    \item Create a multi channel image using \menu{Image>Color>Merge
-        Channels\dots}
+          \keys{\ctrl+\shift+z} to select the channel to display.
+    \item Create a multichannel image using \menu{Image>Color>Merge
+            Channels\dots}.
     \item Split channels of an image using \menu{Image>Color>Split
-        Channels}
+            Channels}.
   \end{itemize}
 
 \end{frame}
 
+\begin{frame}{Exercise: Multichannel image}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open a composite image \menu{File>Open Samples>Fluorescent
+              Cells}
+      \item Use the channel tool (\menu{Image>Color>Channel Tool...}) to display each colour individually. Try different settings and observe the changes in the image.
+      \item Use \menu{Image>Color>Split Channels} to split the stack into separate images
+      \item Use \menu{Image>Color>Merge Channels} to create a new image consisting of the red and green channel only.
+    \end{enumerate}
+  \end{beamercolorbox}
+\end{frame}
 
-\begin{frame} \frametitle{Multi-dimensional images: Stack \& Hyperstacks}
+
+\begin{frame} \frametitle{Multidimensional images: stack \& hyper stacks}
 
   \begin{itemize} \setlength\itemsep{1em}
     \item Images can have many dimensions (axis) associated to them
-      channel c, time t, depth.
+          channel c, time t, depth.
     \item Image stacks represent up to 4 dimensions (xyzc or xytc) with
-      a maximum of 3 channels.
-    \item Hyperstacks can have up to 5 dimensions xyzct with no limits
-      on the number of channels.
+          a maximum of 3 channels.
+    \item Hyper stacks can have up to 5 dimensions xyzct with no limits
+          on the number of channels.
     \item Virtual stacks enable to load only the images planes which are
-      visualised.
+          visualized.
   \end{itemize}
   \vspace{1em}
-  To quickly visualise multidimensional data, use :
+  To quickly visualize multidimensional data, use :
   \vspace{0.5em}
   \begin{itemize}
-      \vspace{1em}\item Orthogonal views (\menu{Image>Stack>Orthogonal Views}) or
-      \keys{\ctrl+\shift+H} can help visualise 3D data
+    \vspace{1em}\item Orthogonal views (\menu{Image>Stack>Orthogonal Views}) or
+          \keys{\ctrl+\shift+H} can help visualise 3D data
     \item Maximum intensity projection \menu{Image>Stack>Z Project\dots}
-    \item Reslice a stack with \menu{Image>Stack>Reslice\dots} or press \keys{/}
+    \item Re-slice a stack with \menu{Image>Stack>Reslice\dots} or press \keys{/}
     \item To synchronize two stacks use \menu{Analyze>Tools>Synchronize Windows}
-    \item Visualise 3D data using \menu{Plugins>3D viewer}, ClearVolume,  or 3D script
+    \item Visualize 3D data using \menu{Plugins>3D viewer}, ClearVolume, or 3D script
   \end{itemize}
 \end{frame}
 
@@ -535,18 +624,18 @@
 
   \begin{itemize} \setlength\itemsep{1.5em}
     \item Duplicate \keys{\ctrl+\shift+D} allows to crop, select
-      channels and slices
+          channels and slices
     \item Use \keys{{+}} and \keys{-} or the magnifying glass tool to zoom
-      in and out the displayed image.
+          in and out the displayed image.
     \item Use the hand tool to pan within a zoomed image.
     \item Changing the actual pixel size:
-      \begin{itemize}
-      \item \menu{Image>Scale} scale the image, if ``create a new
-        image'' is not ticked, the image keep the same number of pixels and is
-        cropped or padded as necessary.
-      \item \menu{Image>Adjust>Size\dots} scale the image in place
-        without cropping or creating a new image.
-      \end{itemize}
+          \begin{itemize}
+            \item \menu{Image>Scale} scale the image, if ``create a new
+                  image'' is not ticked, the image keep the same number of pixels and is
+                  cropped or padded as necessary.
+            \item \menu{Image>Adjust>Size\dots} scale the image in place
+                  without cropping or creating a new image.
+          \end{itemize}
     \item Use the search bar to look for tools.
   \end{itemize}
 
@@ -557,21 +646,21 @@
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item Uneven background makes images difficult to segment using a threshold.
-      \item Background level can vary for several reason:
-        \begin{itemize}
-        \item Uneven illumination
-        \item Scattering
-        \item Auto fluorescence
-        \end{itemize}
-      \item We can apply a few generic correction, to help thresholding the image
-        \begin{itemize}
-        \item Rolling ball from \menu{Process>Subtract Background\dots}
-        \item Top Hat (image - grayscale opening) from
-          \menu{Process>Filter>Top Hat\dots}
-        \end{itemize}
-      \item Note that the resulting intensity remains hard to compare at different
-        location within the image.
+        \item Uneven background makes images difficult to segment using a threshold.
+        \item Background level can vary for several reason:
+              \begin{itemize}
+                \item Uneven illumination
+                \item Scattering
+                \item Auto fluorescence
+              \end{itemize}
+        \item We can apply a few generic correction, to help thresholding the image
+              \begin{itemize}
+                \item Rolling ball from \menu{Process>Subtract Background\dots}
+                \item Top Hat (image - grayscale opening) from
+                      \menu{Process>Filter>Top Hat\dots}
+              \end{itemize}
+        \item Note that the resulting intensity remains hard to compare at different
+              location within the image.
       \end{itemize}
     \end{column}
 
@@ -602,8 +691,8 @@
 
         \end{tikzpicture}
 
-      {\tiny Uneven illumination}
-    \end{center}
+        {\tiny Uneven illumination}
+      \end{center}
 
     \end{column}
 
@@ -625,37 +714,57 @@
 
   \begin{center}
     \begin{tabular}{ c c c c}
-      Original & Smooth & Gaussian 5px  & Median 2px\\
-      \includegraphics[width=0.2\textwidth]{flt-original}&
-      \includegraphics[width=0.2\textwidth]{flt-smooth}&
-      \includegraphics[width=0.2\textwidth]{flt-gaussian5}&
+      Original                                             & Smooth & Gaussian 5px & Median 2px \\
+      \includegraphics[width=0.2\textwidth]{flt-original}  &
+      \includegraphics[width=0.2\textwidth]{flt-smooth}    &
+      \includegraphics[width=0.2\textwidth]{flt-gaussian5} &
       \includegraphics[width=0.2\textwidth]{flt-median2}
     \end{tabular}
   \end{center}
-
 \end{frame}
 
+\begin{frame}{Filtering, noise \& edges}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Create an image with a light grey square on a darker grey
+            square.
+            \begin{enumerate}
+              \item Create an empty image using \menu{File>New>Image...}
+              \item \menu{Edit>Options>Colors...} Set the foreground to \menu{lightgray} and the background to \menu{darkgray}
+              \item Draw a rectangle on the image using the rectangle tool on the Fiji toolbar.
+              \item \menu{Edit>Clear Outside}
+              \item \menu{Edit>Fill}
+            \end{enumerate}
+      \item Launch the histogram and press \menu{Live}. How does the histogram look like?
+      \item Add 50 intensity units to every pixel in the image.  \menu{Process>Math>Add...} Observe what happens to the histogram.
+      \item Add noise to the image. Choose a noise tool under   \menu{Process>Noise}. How does the histogram look like?
+      \item Apply some filtering to the image (under \menu{Process>Filter} or \menu{Process>Smooth}) and observe the change in the histogram.
+      \item Set a threshold and observe the result.
+      \item  Experiment with different filters.
+    \end{enumerate}
+  \end{beamercolorbox}
+\end{frame}
 
 \begin{frame} \frametitle{Selection / Region Of Interest (ROI)}
 
   \begin{itemize} \setlength\itemsep{1em}
     \item Use the rectangle, circle, polygon, freehand, line tools to
-      create selections.
+          create selections.
     \item Use \menu{Edit>Selection>Specify} to enter manually the
-      coordinate of a shape
+          coordinate of a shape
     \item Transfer selection across images using
-      \menu{Edit>Selection>Restore Selection} or \keys{\ctrl+\shift+E}
+          \menu{Edit>Selection>Restore Selection} or \keys{\ctrl+\shift+E}
     \item Store selection into the ROI manager \menu{Edit>Selection>Add
-        to manager} or \keys{t}
+            to manager} or \keys{t}
     \item Use \menu{Edit>Selection>Select None} \keys{\ctrl+\shift+A} to
-      be sure no selection is active
+          be sure no selection is active
     \item ROI from the ROI Manager can be stored as individual
-      proprietary .roi file or as a collection into a .zip file.
+          proprietary .roi file or as a collection into a .zip file.
     \item ROIs can be combined together using AND, OR, XOR logical
-      operation
+          operation
     \item Use \menu{Edit>Draw} and \menu{Edit>Fill} to set the pixel
-      values on the contours resp. the inside of the shape to the value
-      define by the colour picker tool.
+          values on the contours resp. the inside of the shape to the value
+          define by the colour picker tool.
   \end{itemize}
 
 \end{frame}
@@ -665,22 +774,22 @@
   \begin{columns}
     \begin{column}{0.7\textwidth}
       \begin{itemize} \setlength\itemsep{1em}
-      \item Thresholding an image gives a binary image: 8-bit image with
-        values either "True" (0) or "False" (255).
-      \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
-        tool.
-        \begin{itemize}
-        \item Use the sliders to set the upper and lower values
-        \item Auto thresholds: Fiji includes a set of automatic threshold
-          \url{https://imagej.net/plugins/auto-threshold}
-        \item Stack histogram: the statistics will be computed on the all
-          stack
-        \end{itemize}
-      \item Use \menu{Apply} or \menu{Process>Binary>Convert to mask} to
-        apply the threshold and make the image binary.
-      \item The menu \menu{Process>Binary>Make binary} will show a dialog
-        if a threshold has been set.
-      \item The LUT of binary images is inverted
+        \item Thresholding an image gives a binary image: 8-bit image with
+              values either "True" (0) or "False" (255).
+        \item Use the sort cut \keys{ctrl+\shift+T} to display the threshold
+              tool.
+              \begin{itemize}
+                \item Use the sliders to set the upper and lower values
+                \item Auto thresholds: Fiji includes a set of automatic threshold
+                      \url{https://imagej.net/plugins/auto-threshold}
+                \item Stack histogram: the statistics will be computed on the all
+                      stack
+              \end{itemize}
+        \item Use \menu{Apply} or \menu{Process>Binary>Convert to mask} to
+              apply the threshold and make the image binary.
+        \item The menu \menu{Process>Binary>Make binary} will show a dialog
+              if a threshold has been set.
+        \item The LUT of binary images is inverted
       \end{itemize}
     \end{column}
     \begin{column}{0.3\textwidth} \centering
@@ -689,60 +798,85 @@
   \end{columns}
 \end{frame}
 
-\begin{frame} \frametitle{Binary image processing}
 
-  \begin{itemize} \setlength\itemsep{1em}
-  \item \menu{Process>Binary>Dilate} grow the masks, similar to
-    \menu{Process>Filter>Maximum\dots}
-  \item \menu{Process>Binary>Erode} shrink the masks, similar to
-    \menu{Process>Filter>Minimum\dots}
-  \item \menu{Process>Binary>Open} is equivalent to erode followed by
-    dilate, removes small objects and lines
-  \item \menu{Process>Binary>Close-} is equivalent to dilate followed
-    by erode, bridge non touching objects etc
-  \item \menu{Process>Binary>Watershed} separate touching objects
-  \item \menu{Process>Binary>Fill Holes} will fill holes in the masks
+
+\begin{frame}{Binary image processing}
+  \begin{itemize} %\setlength\itemsep{1em}
+    \item \menu{Process>Binary>Dilate} grow the masks, similar to
+          \menu{Process>Filter>Maximum\dots}
+    \item \menu{Process>Binary>Erode} shrink the masks, similar to
+          \menu{Process>Filter>Minimum\dots}
+    \item \menu{Process>Binary>Open} is equivalent to erode followed by
+          dilate, removes small objects and lines
+    \item \menu{Process>Binary>Close-} is equivalent to dilate followed
+          by erode, bridge non touching objects etc
+    \item \menu{Process>Binary>Watershed} separate touching objects
+    \item \menu{Process>Binary>Fill Holes} will fill holes in the masks
   \end{itemize}
   \begin{center} \includegraphics[width=\textwidth]{flower}
   \end{center}
 \end{frame}
 
 
-\begin{frame} \frametitle{From thresholds to regions of interests}
-    \begin{columns}
-      \begin{column}{0.5\textwidth}
-    \begin{itemize}
-    \item Use \menu{Edit>Selection>Create selection} to convert the
-      threshold to a selection (can be a composite selection).
-      \begin{center}
-      \includegraphics[width=0.7\textwidth]{threshold2selection}
-      \end{center}
-    \end{itemize}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-    \begin{itemize}
-      \item Use the \menu{Analyze>Analyze Particles\dots} to convert
-      connected components into individual ROIs and add them to the ROI
-      Manager.
-      \begin{center}
-        \includegraphics[width=0.7\textwidth]{thresholdroimanager}
-      \end{center}
-    \end{itemize}
-  \end{column}
+\begin{frame}{From thresholds to regions of interests}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Use \menu{Edit>Selection>Create selection} to convert the
+              threshold to a selection (can be a composite selection).
+              \begin{center}
+                \includegraphics[width=0.7\textwidth]{threshold2selection}
+              \end{center}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Use the \menu{Analyze>Analyze Particles\dots} to convert
+              connected components into individual ROIs and add them to the ROI
+              Manager.
+              \begin{center}
+                \includegraphics[width=0.7\textwidth]{thresholdroimanager}
+              \end{center}
+      \end{itemize}
+    \end{column}
   \end{columns}
 \end{frame}
 
+\begin{frame}{Thresholding \& Selection}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the Blobs example \menu{File>Open Samples>Blobs}.
+      \item Open the tresholding tool \keys{\ctrl+\shift+T} or \menu{Image>Adjust>Threshold...}.
+      \item Select a threshold, or a thresholding method.
+      \item Convert the threhsolded region into a ROI using \menu{Edit>Selection>Create selection}.
+      \item Open the ROI manager(\menu{Analyze>Tools>ROI Manager}) and add this selection to the ROI manager using \keys{t}.
+    \end{enumerate}
+    Here the resulting selection can be composed of several non-connected (composite) regions.
+  \end{beamercolorbox}
+\end{frame}
+
+\begin{frame}{Thresholding \& Particle analysis}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-1em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open a grey scale image.
+      \item Duplicate the image.
+      \item Set a threshold on the duplicated image and make the image binary \menu{Process>Binary>Make Binary}. Another way of getting a binary mask is using \menu{Image>Adjust>Threshold...} and clicking \keys{Apply}.
+      \item Add connected components to the ROI Manager using \menu{Analyze>Analyze Particles} (make sure you click \keys{Add to Manager} in the \menu{Analyze Particles} dialog).
+      \item Measure the mean intensity of each ROI by clicking on \menu{Measure} in the ROI Manager. Navigate to \menu{Analyze>Set Measurements...} to specify the required measurements. In the \menu{Set Measurements} menu select the name of the image on which you would like to do the intensity measurements under \menu{Redirect to:}.
+    \end{enumerate}
+  \end{beamercolorbox}
+\end{frame}
 
 \begin{frame} \frametitle{Measurements}
   \begin{columns}
     \begin{column}{0.65\textwidth}
       \begin{itemize} \setlength\itemsep{2em}
-      \item Use \menu{Analyze>Set Measurements} to define the
-        quantity to be measured
-      \item Select an individual ROI and press \keys{\ctrl+M} to add
-        measurements to the Result table.
-      \item To measure the properties of all ROI stored in the ROI
-        Manager, select them all with \keys{\ctrl+A} and press \menu{Measure}
+        \item Use \menu{Analyze>Set Measurements} to define the
+              quantity to be measured
+        \item Select an individual ROI and press \keys{\ctrl+M} to add
+              measurements to the Result table.
+        \item To measure the properties of all ROI stored in the ROI
+              Manager, select them all with \keys{\ctrl+A} and press \menu{Measure}
       \end{itemize}
     \end{column}
     \begin{column}{0.35\textwidth}
@@ -754,10 +888,10 @@
 
 \begin{frame} \frametitle{Saving results}
   \begin{itemize} \setlength\itemsep{2em}
-  \item ImageJ TIFF can contain several images with metadata, sampling, overlays, LUT.
-  \item OME-TIFF add standardized metadata and compression (useful for masks).
-  \item Export ROI from the ROI manager to .roi or .zip files.
-  \item Export tables as .csv files to load in statistical softwares.
+    \item ImageJ TIFF can contain several images with metadata, sampling, overlays, LUT.
+    \item OME-TIFF add standardized metadata and compression (useful for masks).
+    \item Export ROI from the ROI manager to .roi or .zip files.
+    \item Export tables as .csv files to load in statistical softwares.
   \end{itemize}
 \end{frame}
 
@@ -765,43 +899,57 @@
 \begin{frame} \frametitle{Advanced morphological operation}
   \begin{columns}
     \begin{column}{0.65\textwidth}
-  MorpholibJ provides additional morphological operations in 2D and 3D.
-  \begin{block}{Installation}
-    \begin{itemize}
-    \item Activate the IJPB-plugins update site
-    \end{itemize}
-  \end{block}
-  \begin{block}{Example usage}
-    \begin{itemize}
-      \item 3D morphological operations
-      \item Label connected components
-      \item Size filtering
-      \item Seeded watershed
-      \end{itemize}
-  \end{block}
-\end{column}
-\begin{column}{0.35\textwidth}
-  \includegraphics[width=\textwidth]{seeded_watershed}
-\end{column}
-\end{columns}
+      MorpholibJ provides additional morphological operations in 2D and 3D.
+      \begin{block}{Installation}
+        \begin{itemize}
+          \item Activate the IJPB-plugins update site
+        \end{itemize}
+      \end{block}
+      \begin{block}{Example usage}
+        \begin{itemize}
+          \item 3D morphological operations
+          \item Label connected components
+          \item Size filtering
+          \item Seeded watershed
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \includegraphics[width=\textwidth]{seeded_watershed}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Seeded watershed}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth,sep=-0.5em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the "HeLa Cells (48-bit RGB)" example
+      \item Duplicate the third channel and create a mask of the nuclei
+      \item Compute the connected components (\menu{Plugins>MorpholibJ>Binary Images>Connected Components Labeling})
+      \item Filter out smaller regions (\menu{Plugins>MorpholibJ>Label Images>Label Size Filtering}) and rename the image as "marker".
+      \item Duplicate "marker" and threshold with values zeros and one and apply.
+      \item Compute the distance transform \menu{Process>Binary>Distance Map} and rename the image as "input".
+      \item Compute the watershed using \menu{Plugins>MorpholibJ>Segmentation>Marker-controlled Watershed} with "calculate dams" ticked.
+    \end{enumerate}
+  \end{beamercolorbox}
 \end{frame}
 
 \begin{frame} \frametitle{Colocalisation: Pearson correlation coefficient}
   \begin{columns}
     \begin{column}{0.6\textwidth}
       \begin{itemize}
-      \item For two channels red $R$ and green $G$:
-      \begin{equation*}
-        PCC = 
-        \frac{\sum_i (R_i - \bar{R}) (G_i - \bar{G})}
-             {\sqrt{\sum_i (R_i - \bar{R})^2 \sum_i (G_i - \bar{G})^2}}
-      \end{equation*}
-      \item Values ranges between -1 and 1:
-      \begin{center}
-      \includegraphics[width=0.7\textwidth]{pcc.png}
-      \end{center}
-      \item In Fiji, use coloc2 and the JACoP plugins can compute the PCC between channels.
-      \item Include Costes thresholding and randomisation
+        \item For two channels red $R$ and green $G$:
+              \begin{equation*}
+                PCC =
+                \frac{\sum_i (R_i - \bar{R}) (G_i - \bar{G})}
+                {\sqrt{\sum_i (R_i - \bar{R})^2 \sum_i (G_i - \bar{G})^2}}
+              \end{equation*}
+        \item Values ranges between -1 and 1:
+              \begin{center}
+                \includegraphics[width=0.7\textwidth]{pcc.png}
+              \end{center}
+        \item In Fiji, use coloc2 and the JACoP plugins can compute the PCC between channels.
+        \item Include Costes thresholding and randomisation
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
@@ -813,22 +961,25 @@
   \end{columns}
 \end{frame}
 
+
+
+
 \begin{frame} \frametitle{Colocalisation: Manders' overlap coefficient}
   \begin{columns}
     \begin{column}{0.7\textwidth}
       \begin{itemize}
-      \item For two channels red $R$ and green $G$:
-      \begin{equation*}
-        \begin{array}{ll}
-          M_1 &= \frac{\sum_{G_i>0} R_i}{\sum_i R_i}\\
-          M_2 &= \frac{\sum_{R_i>0} G_i}{\sum_i G_i}\\
-        \end{array}
-      \end{equation*}
-      \item Values ranges between 0 and 1
-      \item Available in coloc2 and JACoP
-      \item In both PCC and Manders' coefficient, \textbf{object segmentation} will improve the colocalisation analysis.
-      \item \alert{Co-localization does not prove interaction.}
-    \end{itemize}
+        \item For two channels red $R$ and green $G$:
+              \begin{equation*}
+                \begin{array}{ll}
+                  M_1 & = \frac{\sum_{G_i>0} R_i}{\sum_i R_i} \\
+                  M_2 & = \frac{\sum_{R_i>0} G_i}{\sum_i G_i} \\
+                \end{array}
+              \end{equation*}
+        \item Values ranges between 0 and 1
+        \item Available in coloc2 and JACoP
+        \item In both PCC and Manders' coefficient, \textbf{object segmentation} will improve the colocalisation analysis.
+        \item \alert{Co-localization does not prove interaction.}
+      \end{itemize}
     \end{column}
     \begin{column}{0.3\textwidth}
       \centering
@@ -836,6 +987,21 @@
     \end{column}
   \end{columns}
   \footfullcitenomark{moser17}
+\end{frame}
+
+
+\begin{frame}{Computing manually the Pearson correlation coefficient}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth,sep=-0.5em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the image coloc.tif
+      \item Split the channels, change the bit depth to 32 bit
+      \item Measure the mean intensity and subtract it to both image
+      \item Compute the product of the two images
+      \item Measure the mean of the product and the standard deviation of each channel
+      \item Compute the ratio of the mean of the product by product of the standard deviations.
+      \item Compare with the result given by coloc2.
+    \end{enumerate}
+  \end{beamercolorbox}
 \end{frame}
 
 % \begin{frame} \frametitle{Image registration}
@@ -890,13 +1056,13 @@
 
   \begin{block}{Installation}
     \begin{itemize}
-    \item Activate the CSBDeep and the Stardist update sites
+      \item Activate the CSBDeep and the Stardist update sites
     \end{itemize}
   \end{block}
   \begin{block}{Usage}
     \begin{itemize}
-    \item Startdist is neural network for star convex polygon segmentation.
-    \item Pre-trained weights can be loaded for nuclei segmentation.
+      \item Startdist is neural network for star convex polygon segmentation.
+      \item Pre-trained weights can be loaded for nuclei segmentation.
     \end{itemize}
     \begin{center}
       \includegraphics[width=0.75\textwidth]{stardist}
@@ -906,6 +1072,17 @@
   \centering
   \footfullcitenomark{stardist}
 
+\end{frame}
+
+\begin{frame}{Nuclei segmentation with Stardist}
+  \begin{beamercolorbox}[rounded=true, shadow=true, wd=\textwidth, sep=-0.5em]{exercisecolor}%
+    \begin{enumerate}
+      \item Open the "HeLa Cells (48-bit RGB)" example
+      \item Duplicate the third channel
+      \item Run Stardist using \menu{Plugin>Stardist 2D}
+      \item Select the "Versatile" model, "ROI Manager" for the output type.
+    \end{enumerate}
+  \end{beamercolorbox}
 \end{frame}
 
 \begin{frame} \frametitle{Creating a workflow: towards reproducibility}
@@ -924,9 +1101,9 @@
 
   \begin{block}{Recording and scripting}
     \begin{itemize}
-    \item Recording and scripting allows to reproduce the workflow on other images.
-    \item \alert{Next course:} Introduction to ImageJ macro scripting
-  \end{itemize}
+      \item Recording and scripting allows to reproduce the workflow on other images.
+      \item \alert{Next course:} Introduction to ImageJ macro scripting
+    \end{itemize}
   \end{block}
 
 \end{frame}
@@ -935,29 +1112,29 @@
 \begin{frame} \frametitle{Image integrity}
 
   \begin{itemize}
-  \item Apply adjustments to the entire image
-  \item Track the sequence of manipulations (scripts/macro)
+    \item Apply adjustments to the entire image
+    \item Track the sequence of manipulations (scripts/macro)
   \end{itemize}
 
   Include in the legend or methods section the following
-  information:
+  information (check our wiki):
   \begin{itemize}\small
 
-  \item Equipment (microscopes, lenses, cameras, detectors,
-    filters, software).
+    \item Equipment (microscopes, lenses, cameras, detectors,
+          filters, software).
 
-     \begin{itemize}
-     \item[bad] Pictures were taken on the Zeiss\_780\_2S370.
-     \item[good] Images acquired on a Zeiss LSM 780 inverted
-    microscope controlled by Zen black and equiped with a 63x/1.4 oil
-    objective using a 488nm laser and GaAsp detectors.
-     \end{itemize}
+          \begin{itemize}
+            \item[bad] Pictures were taken on the Zeiss\_780\_2S370.
+            \item[good] Images acquired on a Zeiss LSM 780 inverted
+                  microscope controlled by Zen black and equiped with a 63x/1.4 oil
+                  objective using a 488nm laser and GaAsp detectors.
+          \end{itemize}
 
-  \item Time and space sampling (pixel size), image bit depth,
-    temperature, imaging medium, fluorochromes
-  \item Look up table, gamma correction
-  \item Processing software and manipulations: deconvolution, 3D reconstructions,
-   volume rendering, filtering, nonlinear operation, thresholding and projection
+    \item Time and space sampling (pixel size), image bit depth,
+          temperature, imaging medium, fluorochromes
+    \item Look up table, gamma correction
+    \item Processing software and manipulations: deconvolution, 3D reconstructions,
+          volume rendering, filtering, nonlinear operation, thresholding and projection
   \end{itemize}
 
   \footfullcitenomark{nature-figs}
@@ -970,74 +1147,70 @@
 \begin{frame}{The FAIR Guiding Principles}
   \begin{columns} \scriptsize
     \begin{column}{0.5\textwidth}
-  \begin{block}{Findable}
-    \begin{itemize}
-    \item (meta)data are assigned a globally unique identifier
-    \item data are described with rich metadata 
-    \item metadata clearly and explicitly include the identifier of the data it describes
-    \item (meta)data are registered or indexed in a searchable resource
-    \end{itemize}
-  \end{block}
-
-  \begin{block}{Accessible}
-    \begin{itemize}
-    \item (meta)data are retrievable by their identifier using a standardized protocol
-      \begin{itemize} \scriptsize
-      \item  open, free, and universally implementable
-      \item  allows for an authentication and authorization procedure
-      \end{itemize}
-    \item metadata are accessible, even when the data are no longer available
-    \end{itemize}
-  \end{block}
-\end{column}
-  \begin{column}{0.5\textwidth}
-  \begin{block}{Interoperable}
-    \begin{itemize}
-    \item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
-    \item (meta)data include qualified references to other (meta)data
-    \end{itemize}
-  \end{block}
-
-    \begin{block}{Reusable}
-      \begin{itemize}
-      \item meta(data) are richly described with a plurality of accurate and relevant attributes
-        \begin{itemize}  \scriptsize
-        \item (meta)data are released with a clear and accessible data usage license
-        \item (meta)data are associated with detailed provenance
-        \item (meta)data meet domain-relevant community standards
+      \begin{block}{Findable}
+        \begin{itemize}
+          \item (meta)data are assigned a globally unique identifier
+          \item data are described with rich metadata
+          \item metadata clearly and explicitly include the identifier of the data it describes
+          \item (meta)data are registered or indexed in a searchable resource
         \end{itemize}
-      \end{itemize}
-    \end{block}
-  \end{column}
-  \end{columns}
-    \footfullcitenomark{fair}
-    \footfullcitenomark{cambridge-dmp}
+      \end{block}
 
-  \end{frame}
+      \begin{block}{Accessible}
+        \begin{itemize}
+          \item (meta)data are retrievable by their identifier using a standardized protocol
+                \begin{itemize} \scriptsize
+                  \item  open, free, and universally implementable
+                  \item  allows for an authentication and authorization procedure
+                \end{itemize}
+          \item metadata are accessible, even when the data are no longer available
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Interoperable}
+        \begin{itemize}
+          \item (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+          \item (meta)data include qualified references to other (meta)data
+        \end{itemize}
+      \end{block}
+
+      \begin{block}{Reusable}
+        \begin{itemize}
+          \item meta(data) are richly described with a plurality of accurate and relevant attributes
+                \begin{itemize}  \scriptsize
+                  \item (meta)data are released with a clear and accessible data usage license
+                  \item (meta)data are associated with detailed provenance
+                  \item (meta)data meet domain-relevant community standards
+                \end{itemize}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \footfullcitenomark{fair}
+  \footfullcitenomark{cambridge-dmp}
+
+\end{frame}
 
 
 \begin{frame} \frametitle{Data repository}
 
   \footfullcitenomark{colavizza_citation_2020}.
+  \begin{itemize}
+    \item BioImage Archive \url{https://www.ebi.ac.uk/bioimage-archive/} (viewer)
+    \item Image Data Repository \url{https://idr.openmicroscopy.org} (viewer)
+    \item Zenodo \url{https://zenodo.org} (CERN, doi)
+    \item Figshare \url{https://figshare.com} (20GB, doi)
+    \item DRYAD \url{https://datadryad.org} ()
+  \end{itemize}
 
-  \begin{block}{Image Data Repository \url{https://idr.openmicroscopy.org}}
-    Public repository of image datasets from published scientific studies, where
-    the community can submit, search and access high-quality bio-image data.
-    Supported by BBSRC, Wellcome Trust and EBI. Dedicated viewer for microscopy data.
-  \end{block}
-
-  \begin{block}{Zenodo \url{https://zenodo.org}}
-    General-purpose open repository supported by CERN. Associate a citable doi
-    to digital assets.
-  \end{block}
-
-  \begin{block}{Figshare \url{https://figshare.com}}
-    Upload up to 20GB of data and share privatly, publish (doi)
-  \end{block}
-
-  \begin{block}{DRYAD \url{https://datadryad.org}}
-    Curated resource that makes research data discoverable, freely reusable, and citable.
-  \end{block}
+  More info:
+  \begin{itemize} \tiny
+    \item \url{https://www.ukri.org/about-us/mrc/our-policies-and-standards/research/data-management-and-sharing/}
+    \item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
+    \item \url{https://www.data.cam.ac.uk},
+    \item \url{https://plos.org/open-science/open-data}
+  \end{itemize}
 
   \footfullcitenomark{idr}
   \footfullcitenomark{plosone-opendata}
@@ -1057,13 +1230,6 @@
 
 %   ~~
 
-%   More info:
-%   \begin{itemize} \tiny
-%     \item \url{https://www.ukri.org/about-us/mrc/our-policies-and-standards/research/data-management-and-sharing/}
-%     \item \url{https://osc.cam.ac.uk/open-research/data-management-sharing},
-%     \item \url{https://www.data.cam.ac.uk},
-%     \item \url{https://plos.org/open-science/open-data}
-%   \end{itemize}
 
 %   \end{frame}
 
@@ -1096,26 +1262,26 @@
 
     \begin{column}{0.5\textwidth}
       \begin{tabular}{ll}
-        Image properties &\keys{\ctrl+\shift+P} \\
-        Duplicate/crop & \keys{\ctrl+\shift+D} \\
-        BrightnessContrast & \keys{\Alt+\shift+C} \\
-        Channel Tools & \keys{\ctrl+\shift+Z} \\
-        Add to ROI Manager & \keys{t} \\
-        Restore Selection & \keys{\ctrl+\shift+E} \\
-        Select All & \keys{\ctrl+A} \\
-        Select None & \keys{\ctrl+\shift+A}\\
+        Image properties   & \keys{\ctrl+\shift+P} \\
+        Duplicate/crop     & \keys{\ctrl+\shift+D} \\
+        BrightnessContrast & \keys{\Alt+\shift+C}  \\
+        Channel Tools      & \keys{\ctrl+\shift+Z} \\
+        Add to ROI Manager & \keys{t}              \\
+        Restore Selection  & \keys{\ctrl+\shift+E} \\
+        Select All         & \keys{\ctrl+A}        \\
+        Select None        & \keys{\ctrl+\shift+A} \\
       \end{tabular}
     \end{column}
 
     \begin{column}{0.5\textwidth}
       \begin{tabular}{ll}
-        Histogram & \keys{\ctrl+H} \\
-        Orthoslices & \keys{\ctrl+\shift+H}\\
-        Reslice & \keys{/} \\
-        Threshold & \keys{ctrl+\shift+T} \\
-        Measure & \keys{\ctrl+M} \\
-        Smooth & \keys{\ctrl+\shift+S} \\
-        Plot profile & \keys{\ctrl+K} \\
+        Histogram    & \keys{\ctrl+H}        \\
+        Orthoslices  & \keys{\ctrl+\shift+H} \\
+        Reslice      & \keys{/}              \\
+        Threshold    & \keys{ctrl+\shift+T}  \\
+        Measure      & \keys{\ctrl+M}        \\
+        Smooth       & \keys{\ctrl+\shift+S} \\
+        Plot profile & \keys{\ctrl+K}        \\
       \end{tabular}
     \end{column}
 
