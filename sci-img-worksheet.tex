@@ -59,7 +59,7 @@
 \maketitle
 
 \begin{exercice} \textbf{Installation \& Update sites}
-  To perform the exerces we will first install Fiji and the necessary packages.
+  To perform the exercices we will first install Fiji and the necessary packages.
   \begin{itemize}
   \item \url{https://imagej.net/software/fiji/downloads}
   \item Activate the following update sites: IJPB-plugins, CSBDeep, Stardist
@@ -189,6 +189,16 @@
     \item Duplicate "marker" and threshold with values zeros and one and apply.
     \item Compute the distance transform \menu{Process>Binary>Distance Map} and rename the image as "input".
     \item Compute the watershed using \menu{Plugins>MorpholibJ>Segmentation>Marker-controlled Watershed} with "calculate dams" ticked.
+  \end{enumerate}
+\end{exercice}
+
+\begin{exercice} \textbf{3D measurements}
+  \begin{enumerate}
+    \item Open the "Organ of corti" sample image.
+    \item Duplicate twice the first channel
+    \item On one of the duplicated image, apply a Median filter in 3D and threshold the image
+    \item Compute the connected components (\menu{Plugins>MorpholibJ>Binary Images>Distance Transform Watershed 3D})
+    \item Measure intensities in the original image using \menu{Plugins>MorpholibJ>Analyze>Intensity Measurements 2D/3D}
   \end{enumerate}
 \end{exercice}
 

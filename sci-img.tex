@@ -978,9 +978,13 @@
               \end{equation*}
         \item Values ranges between 0 and 1
         \item Available in coloc2 and JACoP
-        \item In both PCC and Manders' coefficient, \textbf{object segmentation} will improve the colocalisation analysis.
-        \item \alert{Co-localization does not prove interaction.}
       \end{itemize}
+      \begin{block}{Pro tip}
+        \begin{itemize}
+          \item Object segmentation and background correction will improve colocalisation analysis.
+          \item Co-localization does not prove interaction.
+        \end{itemize}
+      \end{block}
     \end{column}
     \begin{column}{0.3\textwidth}
       \centering
@@ -1005,39 +1009,39 @@
   \end{beamercolorbox}
 \end{frame}
 
-\begin{frame} \frametitle{Image registration}
-  Image registration aims at aligning two images to each other.
+% \begin{frame}{Image registration}
+%   Image registration aims at aligning two images to each other.
 
-  % \begin{block}{Installation}
-  %   \begin{itemize}
-  %   \item Activate the BIG_EPFL and MultiStackReg update site
-  %   \end{itemize}
-  % \end{block}
+%   \begin{block}{Installation}
+%     \begin{itemize}
+%       \item Activate the BIG_EPFL and MultiStackReg update site
+%     \end{itemize}
+%   \end{block}
 
-  % \begin{block}{Usage}
-  %   \begin{itemize}
-  %   \item Select the motion model: translation, rigid, scaled rotation or affine
-  %   \item Use MultiStackReg, to register more than one stack
-  %   \end{itemize}
-  % \end{block}
-\end{frame}
+%   \begin{block}{Usage}
+%     \begin{itemize}
+%       \item Select the motion model: translation, rigid, scaled rotation or affine
+%       \item Use MultiStackReg, to register more than one stack
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
 
 
-\begin{frame} \frametitle{Particle tracking with TrackMate}
-  \begin{enumerate}
-    \item Trackmate is the
-    \item Linking the successive position of object over time
-    \item Enable to extract speed, intensity variation, etc over time
-  \end{enumerate}
-  \begin{block}{Usage}
-    \begin{itemize}
-      \item Select a detector and adjust its parameters
-      \item
-    \end{itemize}
-  \end{block}
-\end{frame}
+% \begin{frame} \frametitle{Particle tracking with TrackMate}
+%   \begin{enumerate}
+%     \item Trackmate is the
+%     \item Linking the successive position of object over time
+%     \item Enable to extract speed, intensity variation, etc over time
+%   \end{enumerate}
+%   \begin{block}{Usage}
+%     \begin{itemize}
+%       \item Select a detector and adjust its parameters
+%       \item
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
 
-\begin{frame} \frametitle{Pixel classification with Labkit}
+\begin{frame}{Pixel classification with Labkit}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
@@ -1046,6 +1050,12 @@
         \item Feed each annotated pixel into a classifier
         \item Apply the classifier to the rest of the image.
       \end{itemize}
+      \begin{block}{Pro tip}
+        \begin{itemize}
+          \item Annotate the training data with thin lines.
+          \item Add classes for different type of artifacts.
+        \end{itemize}
+      \end{block}
     \end{column}
     \begin{column}{0.5\textwidth}
       \includegraphics[width=\textwidth]{labkit.png}
